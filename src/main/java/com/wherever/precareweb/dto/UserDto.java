@@ -22,49 +22,64 @@ public class UserDto {
 		this.user_enabled = user_enabled;
 		this.user_role = user_role;
 	}
-	
+
 	public String getUser_id() {
 		return user_id;
 	}
+
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
+
 	public String getUser_pwd() {
 		return user_pwd;
 	}
+
 	public void setUser_pwd(String user_pwd) {
 		this.user_pwd = user_pwd;
 	}
+
 	public String getUser_name() {
 		return user_name;
 	}
+
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
 	}
+
 	public String getUser_birthday() {
 		return user_birthday;
 	}
+
 	public void setUser_birthday(String user_birthday) {
 		this.user_birthday = user_birthday;
 	}
+
 	public String getUser_manager() {
 		return user_manager;
 	}
+
 	public void setUser_manager(String user_manager) {
 		this.user_manager = user_manager;
 	}
+
 	public boolean isUser_enabled() {
 		return user_enabled;
 	}
+
 	public void setUser_enabled(boolean user_enabled) {
 		this.user_enabled = user_enabled;
 	}
+
 	public String getUser_role() {
 		return user_role;
 	}
+
 	public void setUser_role(String user_role) {
 		this.user_role = user_role;
 	}
+	
+	
 	
 	
 }
