@@ -8,11 +8,12 @@ public class UserDto {
 	private String user_manager;
 	private boolean user_enabled;
 	private String user_role;
+	private String user_sex;
 	
 	public UserDto() {}
 	
 	public UserDto(String user_id, String user_pwd, String user_name, String user_birthday, String user_manager,
-			boolean user_enabled, String user_role) {
+			boolean user_enabled, String user_role, String user_sex) {
 		super();
 		this.user_id = user_id;
 		this.user_pwd = user_pwd;
@@ -21,6 +22,7 @@ public class UserDto {
 		this.user_manager = user_manager;
 		this.user_enabled = user_enabled;
 		this.user_role = user_role;
+		this.user_sex = user_sex;
 	}
 
 	public String getUser_id() {
@@ -77,6 +79,14 @@ public class UserDto {
 
 	public void setUser_role(String user_role) {
 		this.user_role = user_role;
+	}
+
+	public String getUser_sex() {
+		return user_sex;
+	}
+
+	public void setUser_sex(String user_sex) {
+		this.user_sex = user_sex;
 	}
 	
 	

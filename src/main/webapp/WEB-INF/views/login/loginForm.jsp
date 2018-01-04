@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -57,4 +58,21 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="<%=cp %>/bootstrap/js/bootstrap.js"></script>
 </body>
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="s"%>
+<%String cp= request.getContextPath(); %>
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+ 로긴 폼<br />
+ ${data}
+</body>
+>>>>>>> fbbc110dc25e142ba9fa88e654746fd9478a2443
 </html>
