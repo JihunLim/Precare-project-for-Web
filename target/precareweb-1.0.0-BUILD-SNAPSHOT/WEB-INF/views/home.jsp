@@ -41,7 +41,7 @@
 							<header>
 								<h1><a href="index.html" id="logo">Precare</a></h1>
 								<hr />
-								<p>We can predict your mental illness and care it before you hurt. (수정)</p>
+								<p>We can prevent your depression and smartphone addiction before you are sick.</p>
 							</header>
 							<footer>
 								<a href="#banner" class="button circled scrolly">Start</a>
@@ -62,10 +62,9 @@
 			<!-- Banner -->
 				<section id="banner">
 					<header>
-						<h2>Hi. You're looking at <strong>Helios</strong>.</h2>
+						<h2>Welcome to the <strong>Precare</strong>.</h2>
 						<p>
-							A (free) responsive site template by <a href="http://html5up.net">HTML5 UP</a>.
-							Built on <strong>skel</strong> and released under the <a href="http://html5up.net/license">CCA</a> license.
+							We introduce noticeable sites that provide information about </br><strong>depression</strong> and <strong>smartphone addiction</strong> and help to prevent them.
 						</p>
 					</header>
 				</section>
@@ -76,35 +75,35 @@
 				<section class="carousel">
 					<div class="reel">
 						<article>
-							<a href="#main" class="image featured scrolly" onclick="boxContextChange(box1)"><img src="resources/images/pic01.jpg" alt="" /></a>
+							<a href="https://www.nimh.nih.gov/health/topics/depression/index.shtml" class="image featured scrolly" onclick="boxContextChange(box1)"><img src="resources/images/NIMH.jpg" alt="" /></a>
 							<header>
-								<h3><a href="#">Pulvinar sagittis congue</a></h3>
+								<h3><a href="https://www.nimh.nih.gov/health/topics/depression/index.shtml">National Institute of Mental Health</a></h3>
 							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+							<p>NIMH offers information about mental health and provides opportunities to help people heal.</p>
 						</article>
 
 						<article>
-							<a href="#main" class="image featured scrolly" onclick="boxContextChange(box2)"><img src="resources/images/pic01.jpg" alt="" /></a>
+							<a href="https://adaa.org/tips#" class="image featured scrolly" onclick="boxContextChange(box2)"><img src="resources/images/WEBMD.jpg" alt="" /></a>
 							<header>
-								<h3><a href="#">Fermentum sagittis proin</a></h3>
+								<h3><a href="https://adaa.org/tips#">WebMD</a></h3>
 							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+							<p>WebMD is an American corporation known as an online publisher of news and information pertaining to human health including many mental health.</p>
 						</article>
 
 						<article>
-							<a href="#main" class="image featured scrolly" onclick="boxContextChange(box3)"><img src="resources/images/pic01.jpg" alt="" /></a>
+							<a href="https://www.helpguide.org/" class="image featured scrolly" onclick="boxContextChange(box3)"><img src="resources/images/HELPGUIDE.jpg" alt="" /></a>
 							<header>
-								<h3><a href="#">Sed quis rhoncus placerat</a></h3>
+								<h3><a href="https://www.helpguide.org/">HelpGuide</a></h3>
 							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+							<p>HelpGuide provides mental health information and helps diagnose areas such as smartphone addiction and internet addiction.</p>
 						</article>
 
 						<article>
-							<a href="#main" class="image featured scrolly" onclick="boxContextChange(box4)"><img src="resources/images/pic01.jpg" alt="" /></a>
+							<a href="https://www.psychologytoday.com/" class="image featured scrolly" onclick="boxContextChange(box4)"><img src="resources/images/pic01.jpg" alt="" /></a>
 							<header>
-								<h3><a href="#">Ultrices urna sit lobortis</a></h3>
+								<h3><a href="https://www.psychologytoday.com/">Psychologytoday</a></h3>
 							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+							<p>Psychologytoday provides articles about health, disease. You can also search for nearby therapists and psychologists.</p>
 						</article>
 
 					</div>
@@ -127,11 +126,6 @@
 					
 				</article>
 			</div>
-			
-					
-				
-				
-				
 
 			<!-- Features -->
 				<div class="wrapper style1">
