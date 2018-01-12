@@ -49,7 +49,7 @@
 			<!-- Banner -->
 				<section id="banner">
 					<header>
-						<h2>Hi. You're looking at <strong>Helios</strong>.</h2>
+						<h2>Hi. You're looking at <strong>kkk</strong>.</h2>
 						<p>
 							A (free) responsive site template by <a href="http://html5up.net">HTML5 UP</a>.
 							Built on <strong>skel</strong> and released under the <a href="http://html5up.net/license">CCA</a> license.
@@ -219,33 +219,22 @@
 			<!-- Footer -->
 				<div id="footer">
 					<div class="container">
-						<div class="row">
 
-						</div>
-						<hr />
 						<div class="row">
 							<div class="12u">
 
 								<!-- Contact -->
 									<section class="contact">
 										<header>
-											<h3>Nisl turpis nascetur interdum?</h3>
+											<h3>Wherever Team in Korea!</h3>
 										</header>
 										<p>Urna nisl non quis interdum mus ornare ridiculus egestas ridiculus lobortis vivamus tempor aliquet.</p>
-										<ul class="icons">
-											<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-											<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-											<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-											<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
-											<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-											<li><a href="#" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
-										</ul>
 									</section>
 
 								<!-- Copyright -->
 									<div class="copyright">
 										<ul class="menu">
-											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+											<li>&copy; Wherever Team. All rights reserved.</li><li>Developed by: Jihun Lim & Junghun Kim & Jungsoo Lee </a></li>
 										</ul>
 									</div>
 
@@ -268,4 +257,5 @@
 			<script src="<%=cp%>/resources/assets/js/main.js"></script>
 
 	</body>
+
 </html>
