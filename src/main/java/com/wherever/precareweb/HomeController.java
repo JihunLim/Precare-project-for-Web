@@ -68,5 +68,18 @@ public class HomeController {
 		System.out.print("로그인페이지");
 		return "list/resultPage";
 	}
+	
+	
+	@RequestMapping("/test") 
+	public String test(Locale locale, Model model) throws Exception {
+		//use this under code when you use db.
+		PrecareDao dao = sqlSession.getMapper(PrecareDao.class);
+		//getUserInfo(model);
+		model.addAttribute("data", dao.selectUserNameWithIdDao("limjihun204"));
+		System.out.print("관리자페이지");
+		return "manager/test";
+	}
+	
+	
 }
 

@@ -14,7 +14,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 	body { margin-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; }
-	#center { position:absolute; top:50%; left:50%; width:300px; height:500px; overflow:hidden; margin-top:-200px; margin-left:-150px;}
+	#center { position:absolute; top:50%; left:50%; width:380px; height:500px; overflow:hidden; margin-top:-200px; margin-left:-150px;}
 </style>
 </head>
 <body>
@@ -33,18 +33,20 @@
 						<c:url value="j_spring_security_check" var="loginUrl"/>
 						<form action="${loginUrl}" method="post">
 						
-						<h2 style="text-align: center;"><a href="#"><img src="images/login_ssis.PNG" alt="사회보장정보원" /></a></h2>
+						<h2 style="text-align: center;"><a href="#"><img src="images/login_ssis.PNG" alt="Precare" /></a></h2>
+						<br />
 						<c:if test="${param.fail == null}">
 						<h5 style="text-align: center;color:#1E90FF;">로그인 후에 이용하실 수 있습니다.</h5>
 						</c:if>
 						<c:if test="${param.fail != null}">
-							<h5 style="text-align: center;color:#CD1039;"><strong>아이디 또는 비밀번호가 잘못되었습니다.</strong></h5>
+							<h5 style="text-align: center; color:red;">아이디 또는 비밀번호가 잘못되었습니다.</h5>
 						</c:if>
+						<br />
 						<div class="form-group">
-							<p><input type="text" class="form-control" placeholder="아이디" name="j_username" id="j_username" size="20" style="height:30px;" required autofocus></p>
-							<p><input type="password" class="form-control" placeholder="비밀번호" name="j_password" id="j_password" required></p>
+							<p><input type="text" class="form-control" placeholder="아이디" name="j_username" id="j_username" style="height:40px;" required autofocus></p>
+							<p><input type="password" class="form-control" placeholder="비밀번호" name="j_password" id="j_password" style="height:40px;" required></p>
 						</div>
-						<input type="submit" class="btn btn-primary form-control" value="로그인">
+						<input type="submit" style="width:100%;" value="로그인">
 						<!--  ID : <input type="text" name="j_username" id="j_username"><br/>
 						PW : <input type="password" name="j_password" id="j_password"><br/>
 						 <input type="submit" value="전송"><br/>-->
