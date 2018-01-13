@@ -2,6 +2,7 @@ package com.wherever.precareweb;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.wherever.precareweb.dao.PrecareDao;
+import com.wherever.precareweb.dto.Prediction;
 
 
 /**
@@ -74,19 +76,34 @@ public class HomeController {
 		//use this under code when you use db.
 		PrecareDao dao = sqlSession.getMapper(PrecareDao.class);
 		String user_id= request.getParameter("user_id"); 
-		System.out.println("userid 1 : " + user_id);
 		if(user_id == null || "".equals(user_id) || "anonymousUser".equals(user_id)) {
 			//get current login user's infomation
-			System.out.println("good ");
 			user_id= SecurityContextHolder.getContext().getAuthentication().getName().toString(); 
 		}
-		System.out.println("userid 2 : " + user_id);
 		String userName = dao.selectUserNameWithIdDao(user_id);
 		if(userName == null || "".equals(userName)) {
 			page = "cmmn/notFoundUser";
 		}
+		model.addAttribute("user_id", user_id);
 		model.addAttribute("user_name", userName);
-		System.out.println("username : " + dao.selectUserNameWithIdDao(user_id));
+		
+		//prediction 정보 가져오기
+		int numPrediction = dao.selectCountPredictionWithIdDao(user_id);
+		List<Prediction> predictionList = null;
+		if(numPrediction > 0) {
+			predictionList = dao.selectAllPredictionWithIdDao(user_id);
+		} 
+		model.addAttribute("prediction_count", numPrediction);
+		model.addAttribute("prediction_list", predictionList);
+		
+		System.out.println("num : "+numPrediction);
+		System.out.println("info : "+predictionList.get(0).getPre_sort());
+		System.out.println("info : "+predictionList.get(0).getPre_result());
+		
+		
+		
+		
+		
 		return page;
 	}
 	
