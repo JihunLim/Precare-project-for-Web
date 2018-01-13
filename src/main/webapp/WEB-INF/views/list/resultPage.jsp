@@ -26,13 +26,13 @@
 					<!-- Inner -->
 						<div class="inner">
 							<header>
-								<h1><span id="logo" color="white" style="font-size:1em;">User name : <input type="text" style="border:1px solid white; background-color:transparent;font-size:1em; color:white; font-weight:bold;" 
-								value="Type Search ID" onfocus="this.value=''; this.style.color=white"/></span></h1>
+								<h1><span id="logo" color="white" style="font-size:1em;">User ID : <input type="text" style="border:1px solid white; background-color:transparent;font-size:1em; color:white; font-weight:bold;" 
+								value='Hello! ${user_name}' onfocus="this.style.color=white" name="userId"/></span></h1>
 								<hr />
-								<p>Check out other result!</p>
+								<p>You can check it out to other result!</p>
 							</header>
 							<footer>
-								<a href="#banner" class="button circled scrolly">Search!</a>
+								<a href="#banner" class="button circled scrolly" onclick="javascript:go2Post(document.getElementsByName('userId')[0].value);">Search!</a>
 							</footer>
 						</div>
 
@@ -40,12 +40,20 @@
 						<nav id="nav">
 							<ul>
 								<li><a href="home">Home</a></li>
-								<li><a href="management">Management</a></li>
-								<li><a href="loginForm">Login</a></li>
+								<li><a href="showResult">Management</a></li>
+								
+								<s:authorize access="isAuthenticated()">
+                           			<li><a href="${pageContext.request.contextPath}/j_spring_security_logout"> <span class="icon fa-sign-out"></span>[Log Out]</a></li>
+                       			</s:authorize>
+                       			
+                       			<s:authorize access="isAnonymous()">
+                           			<li><a href="loginForm">Login</a></li>
+                       			</s:authorize>
+					
 							</ul>
 						</nav>
 				</div>
-
+				
 			<!-- Banner -->
 				<section id="banner">
 					<header>
@@ -255,6 +263,23 @@
 			<script src="<%=cp%>/resources/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="<%=cp%>/resources/assets/js/main.js"></script>
+			<script>
+		    	 function go2Post(value){
+		    	 var form = document.createElement("form");
+		
+		         form.action = "showResult";
+		         form.method = "post";
+		
+		         var hiddenField = document.createElement("input");
+		         hiddenField.setAttribute("type", "hidden");
+		         hiddenField.setAttribute("name", "user_id");
+		         hiddenField.setAttribute("value", document.getElementsByName('userId')[0].value);
+		         //hiddenField.setAttribute("value", value);
+		         form.appendChild(hiddenField);
+		         document.body.appendChild(form);
+		         form.submit();
+    			 }
+    		</script>
 
 	</body>
 

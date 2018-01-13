@@ -41,7 +41,8 @@
 							<header>
 								<h1><a href="index.html" id="logo">Precare</a></h1>
 								<hr />
-								<p>We can prevent your depression and smartphone addiction before you are sick.</p>
+								<p>Hello, <s:authorize access="isAnonymous()">Guest</s:authorize>${user_name}!<br /> 
+								We can prevent your depression and smartphone addiction before you are sick.</p>
 							</header>
 							<footer>
 								<a href="#banner" class="button circled scrolly">Start</a>
@@ -52,12 +53,20 @@
 						<nav id="nav">
 							<ul>
 								<li><a href="home">Home</a></li>
-								<li><a href="management">Management</a></li>
-								<li><a href="loginForm">Login</a></li>
+								<li><a href="showResult">Management</a></li>
+								
+								<s:authorize access="isAuthenticated()">
+                           			<li><a href="${pageContext.request.contextPath}/j_spring_security_logout"> <span class="icon fa-sign-out"></span>[Log Out]</a></li>
+                       			</s:authorize>
+                       			
+                       			<s:authorize access="isAnonymous()">
+                           			<li><a href="loginForm">Login</a></li>
+                       			</s:authorize>
+					
 							</ul>
 						</nav>
-
 				</div>
+
 
 			<!-- Banner -->
 				<section id="banner">
@@ -132,7 +141,7 @@
 
 					<section id="features" class="container special">
 						<header>
-							<h2><a href="showResult" class="button">See result </a></h2>
+							<h2><a href="#" class="button" onclick="javascript:go2Post('<s:authentication property="name"/>');">See result </a></h2>
 							<p>You can check your result.</p>
 						</header>
 					</section>
@@ -177,6 +186,22 @@
 			<script src="<%=cp%>/resources/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="<%=cp%>/resources/assets/js/main.js"></script>
+			<script>
+		    	 function go2Post(value){
+		    	 var form = document.createElement("form");
+		
+		         form.action = "showResult";
+		         form.method = "post";
+		
+		         var hiddenField = document.createElement("input");
+		         hiddenField.setAttribute("type", "hidden");
+		         hiddenField.setAttribute("name", "user_id");
+		         hiddenField.setAttribute("value", value);
+		         form.appendChild(hiddenField);
+		         document.body.appendChild(form);
+		         form.submit();
+    			 }
+    		</script>
 
 	</body>
 
