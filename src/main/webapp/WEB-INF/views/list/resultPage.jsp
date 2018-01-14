@@ -77,36 +77,37 @@
 				</section>
 
 			<!-- Main -->
-				<div class="wrapper style2">
-
-					<article id="main" class="container special">
-						<header>
-							<h2>Past Prediction Results</h2>
-						</header>
-						<table width="800" cellpadding="0" cellspacing="0" border="1">
-							<thead>
-								<tr style="background: #eee; border-bottom: 3px inset #ccc;">
-									<th width="110">date</th>
-									<th>survey title</th>
-									<th>result</th>
-									<th>probability</th>
-									<th>survey content</th>
-								<th></th>
-								</tr>
-							</thead>
-							<c:forEach items="${prediction_list}" var="dto">
-							<tbody>
-								<tr style="text-align:center;">
-									<td bgcolor="#FFFAF0" style="border-right: 1px solid #ccc;border-left: 0px solid #ccc;">${dto.pre_date}</td>
-									<td>${dto.pre_sort}</td>
-									<td>${dto.pre_result}</td>
-									<td>${dto.pre_probability}</td>
-									<td><a href="#" class="skel-layers-ignoreHref"><span class="icon fa-file-text"></span></a></td>
-								</tr>
-							</tbody>
-							</c:forEach>
-						</table>
-					</article>
+				<div class="wrapper style1">
+					<section id="banner">
+						<article id="main" class="container special">
+							<header>
+								<h2>Past Prediction Results</h2>
+							</header>
+							<table width="800" cellpadding="0" cellspacing="0" border="1">
+								<thead>
+									<tr style="background: #eee; border-bottom: 3px inset #ccc;">
+										<th>date</th>
+										<th>survey title</th>
+										<th>result</th>
+										<th>probability(%)</th>
+										<th>survey content</th>
+									<th></th>
+									</tr>
+								</thead>
+								<c:forEach items="${prediction_list}" var="dto">
+								<tbody>
+									<tr style="text-align:center;">
+										<td bgcolor="#FFFAF0" style="border-right: 1px solid #ccc;border-left: 0px solid #ccc;">${dto.pre_date}</td>
+										<td>${dto.pre_sort}</td>
+										<td>${dto.pre_result}</td>
+										<td>${dto.pre_probability}</td>
+										<td><a href="#" class="skel-layers-ignoreHref"><span class="icon fa-file-text"></span></a></td>
+									</tr>
+								</tbody>
+								</c:forEach>
+							</table>
+						</article>
+					</section>
 
 				</div>
 
@@ -132,7 +133,7 @@
 									</c:if>
 									<!-- 예측된 결과가 있을 경우 -->
 									<c:if test="${prediction_count > 0}"> 
-										<c:if test="${prediction_list[0].prediction_sort eq 'depression'}">
+										<c:if test="${prediction_list[0].pre_sort eq 'depression'}">
 											<c:if test="${prediction_list[0].pre_result eq 'yes'}"> 
 												<h2>Recently, you have been suffering from <span style="color: blue;"><strong>${prediction_list[0].pre_sort}</strong></span>.</h2>
 											</c:if>
@@ -144,8 +145,18 @@
 								
 								<p>
 									<h3>Manager's Comment : </h3>
-									<span>'${prediction_list[0].pre_result}'</span>
-							
+									<div class="row">
+										<div class="12u$ 12u$(mobile)">
+										<textarea name="comment" placeholder="" style="width:100%;border:1;overflow:visible;text-overflow:ellipsis;"
+											 <c:if test="${login_id eq user_id}"> readonly </c:if>>${prediction_list[0].pre_result}</textarea>										
+										</div>
+									</div>
+									
+									<c:if test="${login_id ne user_id}">  
+										<footer>
+											<a href="#" class="button circled scrolly" onclick="javascript:go2PostWithComment();">Submit</a>
+										</footer>
+									</c:if>
 							</article>
 							
 						</div>
@@ -209,6 +220,29 @@
 		         form.submit();
     			 }
     		</script>
+    		<script>
+		    	 function go2PostWithComment(){
+		    	 var form = document.createElement("form");
+		
+		         form.action = "updateComment";
+		         form.method = "post";
+		
+		         var hiddenField = document.createElement("input");
+		         hiddenField.setAttribute("type", "hidden");
+		         hiddenField.setAttribute("name", "comment");
+		         hiddenField.setAttribute("value", document.getElementsByName('comment')[0].value);
+		         
+		         var hiddenField2 = document.createElement("input");
+		         hiddenField2.setAttribute("type", "hidden");
+		         hiddenField2.setAttribute("name", "pre_id");
+		         hiddenField2.setAttribute("value", "${prediction_list[0].pre_comment}");
+		         
+		         form.appendChild(hiddenField);
+		         document.body.appendChild(form);
+		         form.submit();
+    			 }
+    		</script>
+    		
 
 	</body>
 

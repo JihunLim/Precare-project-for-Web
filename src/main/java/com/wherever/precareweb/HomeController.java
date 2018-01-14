@@ -2,8 +2,10 @@ package com.wherever.precareweb;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -73,19 +75,44 @@ public class HomeController {
 	@RequestMapping("/showResult") 
 	public String showResult(Locale locale, Model model, HttpServletRequest request) throws Exception {
 		String page = "list/resultPage";
+		Boolean checkResultToCome = false;
+		String managers = null;
+		String[] argManagers = null;
+		String loginId = SecurityContextHolder.getContext().getAuthentication().getName().toString();
 		//use this under code when you use db.
 		PrecareDao dao = sqlSession.getMapper(PrecareDao.class);
 		String user_id= request.getParameter("user_id"); 
 		if(user_id == null || "".equals(user_id) || "anonymousUser".equals(user_id)) {
 			//get current login user's infomation
-			user_id= SecurityContextHolder.getContext().getAuthentication().getName().toString(); 
+			user_id= loginId; 
+			checkResultToCome = true;
 		}
+		//접근하고자 하는 사용자가 존재하는지 확인
 		String userName = dao.selectUserNameWithIdDao(user_id);
 		if(userName == null || "".equals(userName)) {
 			page = "cmmn/notFoundUser";
+			return page;
 		}
+		
+		// 접근하고자 하는 사용자가 조회하려는 사용자의 관리자가 맞는지 확인
+		if(!checkResultToCome){
+			managers = dao.selectAllManagersWithIdDao(user_id);
+			argManagers = managers.split(",");
+			for(String word : argManagers) {
+				if(loginId.equals(word))
+					checkResultToCome = true;
+			}
+			if(!checkResultToCome) {
+				page = "cmmn/notAccessUser";
+				return page;
+			}
+				
+		}
+		
+		
 		model.addAttribute("user_id", user_id);
 		model.addAttribute("user_name", userName);
+		model.addAttribute("login_id", loginId);
 		
 		//prediction 정보 가져오기
 		int numPrediction = dao.selectCountPredictionWithIdDao(user_id);
@@ -96,9 +123,9 @@ public class HomeController {
 		model.addAttribute("prediction_count", numPrediction);
 		model.addAttribute("prediction_list", predictionList);
 		
-		System.out.println("num : "+numPrediction);
-		System.out.println("info : "+predictionList.get(0).getPre_sort());
-		System.out.println("info : "+predictionList.get(0).getPre_result());
+		//System.out.println("num : "+numPrediction);
+		//System.out.println("info : "+predictionList.get(0).getPre_sort());
+		//System.out.println("info : "+predictionList.get(0).getPre_result());
 		
 		
 		
@@ -108,14 +135,23 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping("/test") 
-	public String test(Locale locale, Model model) throws Exception {
-		//use this under code when you use db.
+	@RequestMapping("/updateComment") 
+	public String updateComment(Locale locale, Model model, HttpServletRequest request) throws Exception {
+		String resultPage = "cmmn/saveDataSuccess";
+		try {
 		PrecareDao dao = sqlSession.getMapper(PrecareDao.class);
-		//getUserInfo(model);
-		model.addAttribute("data", dao.selectUserNameWithIdDao("limjihun204"));
-		System.out.print("관리자페이지");
+		String comment = request.getParameter("comment");
+		String pre_id = request.getParameter("pre_id");
+		Map pre_map = new HashMap();
+		pre_map.put("pre_id", pre_id);
+		pre_map.put("comment", comment);
+		dao.updateCommentWithIdDao(pre_map);
 		return "manager/test";
+		}catch(Exception ex) {
+			resultPage = "cmmn/saveDataFailure";
+			System.out.println(ex.getStackTrace());
+		}
+		return resultPage;
 	}
 	
 	

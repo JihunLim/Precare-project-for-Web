@@ -19,8 +19,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         SELECT count(*) FROM prediction where pre_userId = #{param1};
     </select>
     
+    <update id="updateCommentWithIdDao" parameterType="hashmap">
+    	UPDATE prediction set pre_comment=#{comment} where pre_id = #{pre_id}
+    </update>
     
-    
+     <select id="selectAllManagersWithIdDao" parameterType="string" resultType="string">
+        SELECT user_manager FROM user where user_id = #{param1};
+    </select>
     
     
     

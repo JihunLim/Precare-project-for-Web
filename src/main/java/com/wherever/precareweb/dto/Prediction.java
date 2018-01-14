@@ -1,5 +1,8 @@
 package com.wherever.precareweb.dto;
 
+import java.sql.Date;
+import java.util.Locale;
+
 public class Prediction {
 	private int pre_id;
 	private String pre_userId;
@@ -8,6 +11,7 @@ public class Prediction {
 	private float pre_probability;
 	private String pre_comment;
 	private String pre_date;
+	
 	
 	public Prediction() {}
 
@@ -39,8 +43,13 @@ public class Prediction {
 		return pre_date;
 	}
 
-	public void setPre_date(String pre_date) {
-		this.pre_date = pre_date;
+	public void setPre_date(Date pre_date) {
+		try {
+			  java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd (EEE)",Locale.KOREAN);
+			  this.pre_date = formatter.format(pre_date);
+			} catch (Exception ex) {
+				this.pre_date = "date is not available";
+			}
 	}
 
 	public String getPre_result() {
@@ -66,11 +75,6 @@ public class Prediction {
 	public void setPre_comment(String pre_comment) {
 		this.pre_comment = pre_comment;
 	}
-	
-	
-	
-	
-	
 	
 	
 }
