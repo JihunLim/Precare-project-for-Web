@@ -94,6 +94,10 @@ public class HomeController {
 			return page;
 		}
 		
+		//접근하고자 하는 사용자가 자신이라면 조회 가능
+		if(loginId.equals(user_id))
+			checkResultToCome = true;
+		
 		// 접근하고자 하는 사용자가 조회하려는 사용자의 관리자가 맞는지 확인
 		if(!checkResultToCome){
 			managers = dao.selectAllManagersWithIdDao(user_id);
