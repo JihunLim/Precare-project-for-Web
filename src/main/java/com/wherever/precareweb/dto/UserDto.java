@@ -9,21 +9,11 @@ public class UserDto {
 	private boolean user_enabled;
 	private String user_role;
 	private String user_sex;
+	private String user_questionMode;
 	
 	public UserDto() {}
 	
-	public UserDto(String user_id, String user_pwd, String user_name, String user_birthday, String user_manager,
-			boolean user_enabled, String user_role, String user_sex) {
-		super();
-		this.user_id = user_id;
-		this.user_pwd = user_pwd;
-		this.user_name = user_name;
-		this.user_birthday = user_birthday;
-		this.user_manager = user_manager;
-		this.user_enabled = user_enabled;
-		this.user_role = user_role;
-		this.user_sex = user_sex;
-	}
+	
 
 	public String getUser_id() {
 		return user_id;
@@ -87,6 +77,18 @@ public class UserDto {
 
 	public void setUser_sex(String user_sex) {
 		this.user_sex = user_sex;
+	}
+
+
+
+	public String getUser_questionMode() {
+		return user_questionMode;
+	}
+
+
+
+	public void setUser_questionMode(String user_questionMode) {
+		this.user_questionMode = user_questionMode;
 	}
 	
 	

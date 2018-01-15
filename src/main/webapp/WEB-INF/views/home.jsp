@@ -5,9 +5,11 @@
 <%String cp= request.getContextPath(); %>
 <%@ page session="false" %>
 
+
 <!--
 	Wherever Team Web Project for MS Imagine cup 2018
 -->
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -18,6 +20,7 @@
 		<link rel="stylesheet" href="<%=cp%>/resources/assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="<%=cp%>/resources/assets/css/ie8.css" /><![endif]-->
 		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
 		<script type="text/javascript">
 				var box1 = "<b><font color='red'>box1 -> 여기에 관련된 내용 쓰기</font></b>";
 				var box2 = "<b><font color='green'>box2 -> 여기에 관련된 내용 쓰기</font></b>";
@@ -41,7 +44,7 @@
 							<header>
 								<h1><a href="index.html" id="logo">Precare</a></h1>
 								<hr />
-								<p>Hello, <s:authorize access="isAnonymous()">Guest</s:authorize>${user_name}!<br /> 
+								<p>Hello, ${user_name}!<br /> 
 								We can prevent your depression and smartphone addiction before you are sick.</p>
 							</header>
 							<footer>
@@ -118,10 +121,106 @@
 					</div>
 				</section>
 
-			<!-- Main -->
+			<!-- Main (설문조사) -->
 			<div class="wrapper style2">
 				<article id="main" class="container special">
-					<p id="contentView"></p>
+					<header>
+						<h2>Do <strong>survey</strong>.</h2>
+					</header>
+					
+					<p id="contentView">
+					
+					<!-- 로그인 안되어 있는 경우 -->
+					
+					<!-- 로그인 되어 있는 경우 -->
+					<c:if test="${user_name eq 'Guest'}"> 
+					</c:if>
+						
+							<form name="mainForm" method="post" action="<%=cp%>/checkForm" onsubmit="return checkFormRule()">
+							<div class="row">
+	
+								<div class="4u$ 12u$(mobile)">
+									<input type="hidden" name="user_id" value=<s:authentication property="name"/>/>
+									<div class="controls">
+										<label class="control-label">Survey Topic </label>
+										<select name="sort" class="dropdown" onchange="changeValue(this.value)" style="float:left;">
+											<option value="1">Auto</option>
+											<option value="2">Depression</option>
+											<option value="3">Panic disorder</option>
+											<option value="4">Personality disorder</option>
+											<option value="5">Dyslepsia</option>
+											<option value="6">Internet addiction</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							
+							<!-- first question -->
+							<br /><br />
+							<label class="control-label">Q1. ${question1}</label>
+							<div class="btn-group" data-toggle="buttons">
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option1" value="1" required>Very dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option2" value="2" required>Somewhat dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="3" required>Neutral</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="4" required>Somewhat satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="5" required>Very satisfied</label>
+							</div>
+								
+							<!-- Second question -->
+							<br /><br />
+							<label class="control-label">Q2. ${question2}</label>
+							<div class="btn-group" data-toggle="buttons">
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option1" value="1" required>Very dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option2" value="2" required>Somewhat dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="3" required>Neutral</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="4" required>Somewhat satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="5" required>Very satisfied</label>
+							</div>
+							
+							<!-- Third question -->
+							<br /><br />
+							<label class="control-label">Q3. ${question3}</label>
+							<div class="btn-group" data-toggle="buttons">
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option1" value="1" required>Very dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option2" value="2" required>Somewhat dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="3" required>Neutral</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="4" required>Somewhat satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="5" required>Very satisfied</label>
+							</div>
+							
+							<!-- Fourth question -->
+							<br /><br />
+							<label class="control-label">Q4. ${question4}</label>
+							<div class="btn-group" data-toggle="buttons">
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option1" value="1" required>Very dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option2" value="2" required>Somewhat dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="3" required>Neutral</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="4" required>Somewhat satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="5" required>Very satisfied</label>
+							</div>
+							
+							<!-- Fifth question -->
+							<br /><br />
+							<label class="control-label">Q5. ${question5}</label>
+							<div class="btn-group" data-toggle="buttons">
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option1" value="1" required>Very dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option2" value="2" required>Somewhat dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="3" required>Neutral</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="4" required>Somewhat satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="5" required>Very satisfied</label>
+							</div>
+							
+							
+						
+						</p>
+						<!-- Submit button -->
+							<footer>
+								<div class="form-actions">
+								<br />
+									<input type="submit" value="Submit" style="background: #0FAAB2; float:middle;"/>
+								</div>
+							</footer>				
+						</form>
 				</article>
 			</div>
 			
@@ -129,10 +228,80 @@
 			<!-- Write -->
 				<div class="wrapper style2">
 				<article id="write" class="container special">
-					<!-- 여기에 설문조사 하는 거 작성 form 태그 이용해서~~ -->
-					설문조사 여기서 하기
-					
-					
+					<header>
+						<h2><strong>Progress</strong>.</h2>
+					</header>
+					<p id="contentView">
+						<!-- 진행상황 그래프로 표시하기 -->
+						<label for="myChart2"><h3>□ 부서 별 미실시 수</h3><br /></label>
+			
+						<div class="row">
+							<!-- Bar Chart -->
+							<canvas id="myChart2"></canvas>
+							<script>
+								var maxNum = "<c:out value="${maxNumBar}"/>";
+								maxNum *= 1;
+								var h_barOptions = {
+									legend : {
+										display : true,
+										position : 'bottom'
+									},
+									scales : {
+										xAxes : [ {
+											ticks : {
+												min : 0,
+												max : maxNum,
+												stepSize : 1
+											}
+										} ]
+									}
+								};
+								var data_list = new Array();
+								var name_list = new Array();
+								<c:forEach items="${nameDept}" var="item">
+								name_list.push("${item}");
+								</c:forEach>
+								<c:forEach items="${numNonImplement}" var="item">
+								data_list.push("${item}");
+								</c:forEach>
+								var ctx = document.getElementById('myChart2').getContext(
+										'2d');
+								var myChart = new Chart(ctx, {
+									type : 'horizontalBar',
+									data : {
+										labels : name_list,
+										datasets : [ {
+											label : '사무실 보안점검 미실시 수',
+											data : data_list,
+											backgroundColor : [ 'rgba(0, 99, 132, 0.6)',
+													'rgba(30, 99, 132, 0.6)',
+													'rgba(60, 99, 132, 0.6)',
+													'rgba(90, 99, 132, 0.6)',
+													'rgba(120, 99, 132, 0.6)',
+													'rgba(150, 99, 132, 0.6)',
+													'rgba(180, 99, 132, 0.6)',
+													'rgba(210, 99, 132, 0.6)',
+													'rgba(240, 99, 132, 0.6)',
+													'rgba(270, 99, 132, 0.6)' ],
+											borderColor : [ 'rgba(0, 99, 132, 1)',
+													'rgba(30, 99, 132, 1)',
+													'rgba(60, 99, 132, 1)',
+													'rgba(90, 99, 132, 1)',
+													'rgba(120, 99, 132, 1)',
+													'rgba(150, 99, 132, 1)',
+													'rgba(180, 99, 132, 1)',
+													'rgba(210, 99, 132, 1)',
+													'rgba(240, 99, 132, 1)',
+													'rgba(270, 99, 132, 1)' ],
+											borderWidth : 2,
+											hoverBorderWidth : 0
+										} ]
+									},
+									options : h_barOptions
+								});
+							</script>
+						</div>
+					</p>
 				</article>
 			</div>
 
@@ -141,7 +310,7 @@
 
 					<section id="features" class="container special">
 						<header>
-							<h2><a href="#" class="button" onclick="javascript:go2Post('<s:authentication property="name"/>');">See result </a></h2>
+							<h2><a href="#" class="button" style="background: #0FAAB2" onclick="javascript:go2Post('<s:authentication property="name"/>');">See result </a></h2>
 							<p>You can check your result.</p>
 						</header>
 					</section>

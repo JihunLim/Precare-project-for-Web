@@ -23,15 +23,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	UPDATE prediction set pre_comment=#{comment} where pre_id = #{pre_id}
     </update>
     
-     <select id="selectAllManagersWithIdDao" parameterType="string" resultType="string">
+    <select id="selectAllManagersWithIdDao" parameterType="string" resultType="string">
         SELECT user_manager FROM user where user_id = #{param1};
     </select>
     
+    <select id="selectAllUserWithIdDao" parameterType="string" resultType="com.wherever.precareweb.dto.UserDto">
+        SELECT * FROM user where user_id = #{param1};
+    </select>
     
+    <select id="selectAllProgressWithIdDao" parameterType="string" resultType="com.wherever.precareweb.dto.ProgressViewDto">
+        SELECT * FROM progress where pro_userId = #{param1} limit 1;
+    </select>
     
+    <select id="selectAllQuestionDao" parameterType="string" resultType="com.wherever.precareweb.dto.QuestionDto">
+        SELECT * FROM question;
+    </select>
     
+    <select id="selectAllQuestionWithIdDao" parameterType="string" resultType="com.wherever.precareweb.dto.QuestionDto">
+        SELECT * FROM question where que_id = #{param1};
+    </select>
     
-    
+    <select id="selectQuestionEndNumDao" resultType="hashmap">
+        SELECT * FROM questionendnum;
+    </select>
     
     
     
