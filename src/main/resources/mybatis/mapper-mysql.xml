@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
  
     <select id="selectAllPredictionWithIdDao" parameterType="string" resultType="com.wherever.precareweb.dto.Prediction">
-        SELECT * FROM prediction where pre_userId = #{param1} order by pre_date ASC;
+        SELECT * FROM prediction where pre_userId = #{param1} order by pre_date DESC;
     </select>
     
     <select id="selectCountPredictionWithIdDao" parameterType="string" resultType="int">

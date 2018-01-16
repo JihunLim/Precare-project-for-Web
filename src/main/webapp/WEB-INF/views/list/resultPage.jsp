@@ -32,7 +32,7 @@
 								<p>You can check it out to other result!</p>
 							</header>
 							<footer>
-								<a href="#banner" class="button circled scrolly" onclick="javascript:go2Post(document.getElementsByName('userId')[0].value);">Search!</a>
+								<a href="#" class="button circled scrolly" onclick="javascript:go2Post(document.getElementsByName('userId')[0].value);">Search!</a>
 							</footer>
 						</div>
 

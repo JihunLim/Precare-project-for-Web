@@ -72,7 +72,7 @@
 
 
 			<!-- Banner -->
-				<section id="banner">
+				<section id="banner" style="background-image: url('../../../resources/images/img_header.jpg');">
 					<header>
 						<h2>Welcome to the <strong>Precare</strong>.</h2>
 						<p>
@@ -170,44 +170,44 @@
 							<br /><br />
 							<label class="control-label">Q2. ${question2}</label>
 							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option1" value="1" required>Very dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option2" value="2" required>Somewhat dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="3" required>Neutral</label>
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="4" required>Somewhat satisfied</label>
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="5" required>Very satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document1" id="option1" value="1" required>Very dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document1" id="option2" value="2" required>Somewhat dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document1" id="option3" value="3" required>Neutral</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document1" id="option3" value="4" required>Somewhat satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document1" id="option3" value="5" required>Very satisfied</label>
 							</div>
 							
 							<!-- Third question -->
 							<br /><br />
 							<label class="control-label">Q3. ${question3}</label>
 							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option1" value="1" required>Very dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option2" value="2" required>Somewhat dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="3" required>Neutral</label>
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="4" required>Somewhat satisfied</label>
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="5" required>Very satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document2" id="option1" value="1" required>Very dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document2" id="option2" value="2" required>Somewhat dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document2" id="option3" value="3" required>Neutral</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document2" id="option3" value="4" required>Somewhat satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document2" id="option3" value="5" required>Very satisfied</label>
 							</div>
 							
 							<!-- Fourth question -->
 							<br /><br />
 							<label class="control-label">Q4. ${question4}</label>
 							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option1" value="1" required>Very dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option2" value="2" required>Somewhat dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="3" required>Neutral</label>
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="4" required>Somewhat satisfied</label>
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="5" required>Very satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document3" id="option1" value="1" required>Very dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document3" id="option2" value="2" required>Somewhat dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document3" id="option3" value="3" required>Neutral</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document3" id="option3" value="4" required>Somewhat satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document3" id="option3" value="5" required>Very satisfied</label>
 							</div>
 							
 							<!-- Fifth question -->
 							<br /><br />
 							<label class="control-label">Q5. ${question5}</label>
 							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option1" value="1" required>Very dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option2" value="2" required>Somewhat dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="3" required>Neutral</label>
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="4" required>Somewhat satisfied</label>
-								<label class="btn btn-primary"> <input type="radio" name="os_document" id="option3" value="5" required>Very satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document4" id="option1" value="1" required>Very dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document4" id="option2" value="2" required>Somewhat dissatisfied</label> 
+								<label class="btn btn-primary"> <input type="radio" name="os_document4" id="option3" value="3" required>Neutral</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document4" id="option3" value="4" required>Somewhat satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="os_document4" id="option3" value="5" required>Very satisfied</label>
 							</div>
 							
 							
