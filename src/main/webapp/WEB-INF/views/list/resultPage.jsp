@@ -112,17 +112,53 @@
 				</div>
 
 			<!-- Features -->
-				<div class="wrapper style1">
+				<div id= "cure" class="wrapper style1">
 
 					<section id="features" class="container special">
-						<header>
-							<h2>Here is a helpful remedy for you.</h2>
-						</header>
+					<!-- None -->
+						<!-- 예측된 결과가 없을 경우 -->
+							<c:if test="${prediction_count <= 0}"> 
+								<h2>"We can't give you the answer yet!"</h2>
+							</c:if>
+							<!-- 예측된 결과가 있을 경우 -->
+							<c:if test="${prediction_count > 0}"> 
+								<c:if test="${prediction_list[0].pre_result eq 'yes'}"> 
+									<h2><strong>${user_name}!</strong> I will give you some solutions.</h2>
+									<p>
+										<!-- depression -->
+										<c:if test="${prediction_list[0].pre_sort eq 'depression'}"> 
+											<h2>"AOops! You haven't finished the survey yet."</h2>
+										</c:if>
+										<!-- Panic disorder -->
+										<c:if test="${prediction_list[0].pre_sort eq 'Panic disorder'}">
+											<h2>Becently, you have been suffering from <span style="color: blue;"><strong>${prediction_list[0].pre_sort}</strong></span>.</h2>
+										</c:if>
+										<!-- Personality disorder -->
+										<c:if test="${prediction_list[0].pre_sort eq 'Personality disorder'}"> 
+											<h2>Congratulations! You are mentally sound great without <strong><span color="blue">${prediction_list[0].pre_sort}</span></strong>.</h2> 
+										</c:if>
+										<!-- insomnia -->
+										<c:if test="${prediction_list[0].pre_sort eq 'insomnia'}"> 
+											<h2>Congratulations! You are mentally sound great without <strong><span color="blue">${prediction_list[0].pre_sort}</span></strong>.</h2> 
+										</c:if>
+										<!-- Internet addiction -->
+										<c:if test="${prediction_list[0].pre_sort eq 'Internet addiction'}"> 
+											<h2>Internet addcition! You are mentally sound great without <strong><span color="blue">${prediction_list[0].pre_sort}</span></strong>.</h2> 
+										</c:if>
+									</p>
+								</c:if>
+								<c:if test="${prediction_list[0].pre_result eq 'no'}"> 
+									<h2>Always keep your mental health as it is now.</h2> 
+								</c:if>
+							</c:if>
+						
 						<div class="row">
 						
 						
 							<article class="12u 12u(mobile) special">
-								<p class="image featured"><img src="resources/images/pic07.jpg" alt="" /></p>
+								
+								
+								
 								<header>
 									<h3><a href="#">Gravida aliquam penatibus</a></h3>
 								</header>
