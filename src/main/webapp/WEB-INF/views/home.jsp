@@ -87,35 +87,38 @@
 				<section class="carousel">
 					<div class="reel">
 						<article>
-							<a href="https://www.nimh.nih.gov/health/topics/depression/index.shtml" class="image featured scrolly" onclick="boxContextChange(box1)"><img src="resources/images/NIMH.jpg" alt="" /></a>
+							<a href=# class="image featured scrolly" onclick="boxContextChange(box1)"><img src="resources/images/depression.png" alt="" /></a>
 							<header>
-								<h3><a href="https://www.nimh.nih.gov/health/topics/depression/index.shtml">National Institute of Mental Health</a></h3>
+								<h3><a href=#>Depression</a></h3>
 							</header>
-							<p>NIMH offers information about mental health and provides opportunities to help people heal.</p>
 						</article>
 
 						<article>
-							<a href="https://adaa.org/tips#" class="image featured scrolly" onclick="boxContextChange(box2)"><img src="resources/images/WEBMD.jpg" alt="" /></a>
+							<a href=# class="image featured scrolly" onclick="boxContextChange(box2)"><img src="resources/images/Panic_Disorder.png" alt="" /></a>
 							<header>
-								<h3><a href="https://adaa.org/tips#">WebMD</a></h3>
+								<h3><a href=#>Panic disorder</a></h3>
 							</header>
-							<p>WebMD is an American corporation known as an online publisher of news and information pertaining to human health including many mental health.</p>
 						</article>
 
 						<article>
-							<a href="https://www.helpguide.org/" class="image featured scrolly" onclick="boxContextChange(box3)"><img src="resources/images/HELPGUIDE.jpg" alt="" /></a>
+							<a href=# class="image featured scrolly" onclick="boxContextChange(box3)"><img src="resources/images/Personality_disorder.jpg" alt="" /></a>
 							<header>
-								<h3><a href="https://www.helpguide.org/">HelpGuide</a></h3>
+								<h3><a href=#>Personality disorder</a></h3>
 							</header>
-							<p>HelpGuide provides mental health information and helps diagnose areas such as smartphone addiction and internet addiction.</p>
 						</article>
 
 						<article>
-							<a href="https://www.psychologytoday.com/" class="image featured scrolly" onclick="boxContextChange(box4)"><img src="resources/images/PT.jpg" alt="" /></a>
+							<a href=# class="image featured scrolly" onclick="boxContextChange(box4)"><img src="resources/images/insomnia.png" alt="" /></a>
 							<header>
-								<h3><a href="https://www.psychologytoday.com/">Psychologytoday</a></h3>
+								<h3><a href=#>insomnia</a></h3>
 							</header>
-							<p>Psychologytoday provides articles about health, disease. You can also search for nearby therapists and psychologists.</p>
+						</article>
+						
+						<article>
+							<a href=# class="image featured scrolly" onclick="boxContextChange(box4)"><img src="resources/images/Internet_addiction.jpg" alt="" /></a>
+							<header>
+								<h3><a href=#>Internet addiction</a></h3>
+							</header>
 						</article>
 
 					</div>

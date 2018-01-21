@@ -3044,7 +3044,7 @@
 	/* cure section */
 	#cure{
 		position: relative;
-		background-image: url("../../images/img_header.jpg");
+		background-image: url("../../images/result_bg.jpg");
 		background-size: cover;
 		background-position: center center;
 		cursor: default;
