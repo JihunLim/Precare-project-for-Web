@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+<mapper namespace="com.wherever.precareweb.dao.PrecareDao">
+	<!-- 테이블 이름을 대문자로 변경시 오류발생! -->
+ 
+    <!--  #안에 있는 건 jsp내 form 안에 name 태그 설정 값을 써주면 됨 -->
+    <select id="selectUserNameWithIdDao" parameterType="string" resultType="string">
+        SELECT user_name FROM user where user_id = #{param1};
+    </select>
+ 
+    <select id="selectAllPredictionWithIdDao" parameterType="string" resultType="com.wherever.precareweb.dto.Prediction">
+        SELECT * FROM prediction where pre_userId = #{param1} order by pre_date DESC;
+    </select>
+    
+    <select id="selectCountPredictionWithIdDao" parameterType="string" resultType="int">
+        SELECT count(*) FROM prediction where pre_userId = #{param1};
+    </select>
+    
+    <update id="updateCommentWithIdDao" parameterType="hashmap">
+    	UPDATE prediction set pre_comment=#{comment} where pre_id = #{pre_id}
+    </update>
+    
+    <select id="selectAllManagersWithIdDao" parameterType="string" resultType="string">
+        SELECT user_manager FROM user where user_id = #{param1};
+    </select>
+    
+    <select id="selectAllUserWithIdDao" parameterType="string" resultType="com.wherever.precareweb.dto.UserDto">
+        SELECT * FROM user where user_id = #{param1};
+    </select>
+    
+    <select id="selectAllProgressWithIdDao" parameterType="string" resultType="com.wherever.precareweb.dto.ProgressViewDto">
+        SELECT * FROM progress where pro_userId = #{param1} limit 1;
+    </select>
+    
+    <select id="selectAllQuestionDao" parameterType="string" resultType="com.wherever.precareweb.dto.QuestionDto">
+        SELECT * FROM question;
+    </select>
+    
+    <select id="selectAllQuestionWithIdDao" parameterType="string" resultType="com.wherever.precareweb.dto.QuestionDto">
+        SELECT * FROM question where que_id = #{param1};
+    </select>
+    
+    <select id="selectQuestionEndNumDao" resultType="hashmap">
+        SELECT * FROM questionendnum;
+    </select>
+    
+    <insert id="insertSurveyAnswerDao" parameterType="com.wherever.precareweb.dto.ResultDto">
+        INSERT into result values(default, #{res_userId}, #{res_questionId}, #{res_questionAnswer}, #{res_status}, default);
+    </insert>
+    
+    <select id="countStateWithIdAndSortDao" parameterType="hashmap" resultType="int">
+        SELECT count(*) FROM prediction where pre_userId = #{pre_userId} and pre_sort = #{pre_sort};
+    </select>
+    
+</mapper>

@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
-		alert('데이터가 성공적으로 저장되었습니다.');
+		alert('Your data has been successfully saved.');
 		location.href="<%=cp%>/showResult";
 </script>
 <title></title>

@@ -89,7 +89,7 @@
 										<th>date</th>
 										<th>survey title</th>
 										<th>result</th>
-										<th>probability(%)</th>
+										<th>Severity</th>
 										<th>survey content</th>
 									<th></th>
 									</tr>
@@ -100,7 +100,15 @@
 										<td bgcolor="#FFFAF0" style="border-right: 1px solid #ccc;border-left: 0px solid #ccc;">${dto.pre_date}</td>
 										<td>${dto.pre_sort}</td>
 										<td>${dto.pre_result}</td>
-										<td>${dto.pre_probability}</td>
+										<!-- result가 no면 없음, result가 yes면 -> 가능성이 30아래면 약, 60아래면 중, 100아래면 상 -->
+										<c:if test="${dto.pre_result eq 'no'}">
+											<td>-</td>
+										</c:if>
+										<c:if test="${dto.pre_result eq 'yes'}">
+											<c:if test="${dto.pre_probability <= 30}"><td>low</td></c:if>
+											<c:if test="${dto.pre_probability > 30 && dto.probability <=60}"><td>middle</td></c:if>
+											<c:if test="${dto.pre_probability > 60 && dto.probability <=100}"><td>high</td></c:if>
+										</c:if>
 										<td><a href="#" class="skel-layers-ignoreHref"><span class="icon fa-file-text"></span></a></td>
 									</tr>
 								</tbody>

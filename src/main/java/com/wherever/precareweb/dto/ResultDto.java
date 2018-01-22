@@ -1,62 +1,81 @@
 package com.wherever.precareweb.dto;
 
 public class ResultDto {
-	private int result_id;
-	private String user_id;
-	private String question_id;
-	private int question_result;
-	private String last_status;
+	private int res_id;
+	private String res_userId;
+	private String res_questionId;
+	private int res_questionAnswer;
+	private int res_status;
+	private String res_date;
 	
 	public ResultDto() {}
 
-	public ResultDto(int result_id, String user_id, String question_id, int question_result, String last_status) {
+	public ResultDto(int res_id, String res_userId, String res_questionId, int res_questionAnswer, int res_status,
+			String res_date) {
 		super();
-		this.result_id = result_id;
-		this.user_id = user_id;
-		this.question_id = question_id;
-		this.question_result = question_result;
-		this.last_status = last_status;
+		this.res_id = res_id;
+		this.res_userId = res_userId;
+		this.res_questionId = res_questionId;
+		this.res_questionAnswer = res_questionAnswer;
+		this.res_status = res_status;
+		this.res_date = res_date;
 	}
 
-	public int getResult_id() {
-		return result_id;
+	public ResultDto(String res_userId, String res_questionId, int res_questionAnswer, int res_status) {
+		super();
+		this.res_userId = res_userId;
+		this.res_questionId = res_questionId;
+		this.res_questionAnswer = res_questionAnswer;
+		this.res_status = res_status;
 	}
 
-	public void setResult_id(int result_id) {
-		this.result_id = result_id;
+	public int getRes_id() {
+		return res_id;
 	}
 
-	public String getUser_id() {
-		return user_id;
+	public void setRes_id(int res_id) {
+		this.res_id = res_id;
 	}
 
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public String getRes_userId() {
+		return res_userId;
 	}
 
-	public String getQuestion_id() {
-		return question_id;
+	public void setRes_userId(String res_userId) {
+		this.res_userId = res_userId;
 	}
 
-	public void setQuestion_id(String question_id) {
-		this.question_id = question_id;
+	public String getRes_questionId() {
+		return res_questionId;
 	}
 
-	public int getQuestion_result() {
-		return question_result;
+	public void setRes_questionId(String res_questionId) {
+		this.res_questionId = res_questionId;
 	}
 
-	public void setQuestion_result(int question_result) {
-		this.question_result = question_result;
+	public int getRes_questionAnswer() {
+		return res_questionAnswer;
 	}
 
-	public String getLast_status() {
-		return last_status;
+	public void setRes_questionAnswer(int res_questionAnswer) {
+		this.res_questionAnswer = res_questionAnswer;
 	}
 
-	public void setLast_status(String last_status) {
-		this.last_status = last_status;
+	public int getRes_status() {
+		return res_status;
 	}
-	
+
+	public void setRes_status(int res_status) {
+		this.res_status = res_status;
+	}
+
+	public String getRes_date() {
+		return res_date;
+	}
+
+	public void setRes_date(String res_date) {
+		this.res_date = res_date;
+	}
+
 	
 }

@@ -43,6 +43,7 @@
 		
 		<security:form-login login-page="/loginForm"
 						authentication-failure-url="/loginForm?fail"
+						default-target-url="/loginSuccess"
 						username-parameter="j_username"
 						password-parameter="j_password"
 						/>

@@ -4,16 +4,31 @@ public class UserDto {
 	private String user_id;
 	private String user_pwd;
 	private String user_name;
+	private String user_sex;
+	private String user_age;
 	private String user_birthday;
+	private String user_occupation;
 	private String user_manager;
 	private boolean user_enabled;
 	private String user_role;
-	private String user_sex;
 	private String user_questionMode;
 	
 	public UserDto() {}
 	
-	
+
+	public UserDto(String user_id, String user_pwd, String user_name, String user_sex, String user_age,
+			String user_birthday, String user_occupation, String user_manager) {
+		super();
+		this.user_id = user_id;
+		this.user_pwd = user_pwd;
+		this.user_name = user_name;
+		this.user_sex = user_sex;
+		this.user_age = user_age;
+		this.user_birthday = user_birthday;
+		this.user_occupation = user_occupation;
+		this.user_manager = user_manager;
+	}
+
 
 	public String getUser_id() {
 		return user_id;
@@ -89,6 +104,30 @@ public class UserDto {
 
 	public void setUser_questionMode(String user_questionMode) {
 		this.user_questionMode = user_questionMode;
+	}
+
+
+
+	public String getUser_age() {
+		return user_age;
+	}
+
+
+
+	public void setUser_age(String user_age) {
+		this.user_age = user_age;
+	}
+
+
+
+	public String getUser_occupation() {
+		return user_occupation;
+	}
+
+
+
+	public void setUser_occupation(String user_occupation) {
+		this.user_occupation = user_occupation;
 	}
 	
 	

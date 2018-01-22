@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<context:component-scan base-package="com.wherever.precareweb">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+    </context:component-scan>
+	
+	<!-- Setting Database with Azure SQL DataBase with connection pool -> MY SQL --> 
+	<beans:bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+    	<beans:property name="driverClass" value="com.mysql.jdbc.Driver"/>
+    	<beans:property name="jdbcUrl" value="jdbc:mysql://precare.mysql.database.azure.com:3306/precare"/>
+    	<beans:property name="user" value="limjihun204@precare"/>
+    	<beans:property name="password" value="gns315824!"/>
+    </beans:bean>
+    
+    <!-- Setting seperate java.class file to let this know as servlet -->
+	 <beans:bean id="homeController" class="com.wherever.precareweb.HomeController"></beans:bean>
+	
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <beans:property name="dataSource" ref="dataSource"></beans:property>
+        <beans:property name="configLocation" value="classpath:/mybatis/mybatis-config.xml">
+        </beans:property>
+    </beans:bean>
+    
+    <beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <beans:property name="dataSource" ref="dataSource"></beans:property>
+    </beans:bean>
+  	
+  	<beans:bean id="sqlSession"
+        class="org.mybatis.spring.SqlSessionTemplate">
+        <beans:constructor-arg  ref="sqlSessionFactory"></beans:constructor-arg>
+    </beans:bean>
+	
+   <!-- 메일보내기(https://www.google.com/settings/security/lesssecureapps) 에서 수준을 낮춰야 함 -->
+   <beans:bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
+      <beans:property name="host" value="smtp.gmail.com" />
+      <beans:property name="port" value="587" />
+      <beans:property name="defaultEncoding" value="utf-8" />
+      <beans:property name="username" value="jihunlim204@gmail.com" />
+      <beans:property name="password" value="YourPassword" />
+      <beans:property name="javaMailProperties">
+         <beans:props>
+               <beans:prop key="mail.transport.protocol">smtp</beans:prop>
+               <beans:prop key="mail.smtp.auth">true</beans:prop>
+               <beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+               <beans:prop key="mail.debug">true</beans:prop>
+         </beans:props>
+      </beans:property>
+   </beans:bean>
+	
+</beans:beans>

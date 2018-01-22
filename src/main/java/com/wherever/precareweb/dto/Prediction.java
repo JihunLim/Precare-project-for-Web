@@ -8,7 +8,7 @@ public class Prediction {
 	private String pre_userId;
 	private String pre_sort;
 	private String pre_result;
-	private float pre_probability;
+	private int pre_probability;
 	private String pre_comment;
 	private String pre_date;
 	
@@ -60,11 +60,13 @@ public class Prediction {
 		this.pre_result = pre_result;
 	}
 
-	public float getPre_probability() {
+
+
+	public int getPre_probability() {
 		return pre_probability;
 	}
 
-	public void setPre_probability(float pre_probability) {
+	public void setPre_probability(int pre_probability) {
 		this.pre_probability = pre_probability;
 	}
 
