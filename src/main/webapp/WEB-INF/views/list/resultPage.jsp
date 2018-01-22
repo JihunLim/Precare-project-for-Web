@@ -39,15 +39,15 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="home">Home</a></li>
-								<li><a href="showResult">Management</a></li>
+								<li><a href="home"><span class="icon fa-home"></span>Home</a></li>
+								<li><a href="showResult"><span class="icon fa-universal-access"></span>Management</a></li>
 								
 								<s:authorize access="isAuthenticated()">
                            			<li><a href="${pageContext.request.contextPath}/j_spring_security_logout"> <span class="icon fa-sign-out"></span>[Log Out]</a></li>
                        			</s:authorize>
                        			
                        			<s:authorize access="isAnonymous()">
-                           			<li><a href="loginForm">Login</a></li>
+                           			<li><a href="loginForm"><span class="icon fa-sign-in"></span>Login</a></li>
                        			</s:authorize>
 					
 							</ul>
@@ -77,7 +77,7 @@
 				</section>
 
 			<!-- Main -->
-				<div class="wrapper style1">
+				<div>
 					<section id="banner">
 						<article id="main" class="container special">
 							<header>
@@ -120,39 +120,77 @@
 				</div>
 
 			<!-- Features -->
-				<div class="wrapper style1">
+				<div id= "cure" class="wrapper style1">
 
 					<section id="features" class="container special">
-						<header>
-							<h2>Here is a helpful remedy for you.</h2>
-						</header>
+					<!-- None -->
+						<!-- 예측된 결과가 없을 경우 -->
+							<c:if test="${prediction_count <= 0}"> 
+								<h2 style="color: white;">"We can't give you the answer yet!"</h2>
+							</c:if>
+							<!-- 예측된 결과가 있을 경우 -->
+							<c:if test="${prediction_count > 0}"> 
+								<c:if test="${prediction_list[0].pre_result eq 'yes'}"> 
+									<h2 style="color: white;"><strong style="color: white;">${user_name}!</strong> I will give you some solutions.</h2>
+									<p>
+										<!-- depression -->
+										<c:if test="${prediction_list[0].pre_sort eq 'depression'}"> 
+											<p style="color: white;">Do you have any of the following symptoms, such as suicidal ideation, loss of will, helplessness, fatigue, sleep disorders, sexual dysfunction, loss of concentration, and appetite disorders?
+											You need to relax yourself by adjusting your stress, relaxing feelings, meeting your friends.
+											And foods such as chocolate, burdock, potatoes, cabbage, mackerel, and banana are very helpful in improving depression.
+											</p>
+										</c:if>
+										<!-- Panic disorder -->
+										<c:if test="${prediction_list[0].pre_sort eq 'Panic disorder'}">
+											<p style="color: white;">Do you have any of the following symptoms, such as Panic attacks, agoraphobia, tachycardia, palpitations, dyspnea, and sweating?
+											You need cognitive-behavior therapy along with taking medication. It is important to find out what you are afraid of and correct it.
+											You must visit the hospital and get care.
+											</p>
+										</c:if>
+										<!-- Personality disorder -->
+										<c:if test="${prediction_list[0].pre_sort eq 'Personality disorder'}"> 
+											<p style="color: white;">Do your friends often talk badly about your personality?
+											Personality disorders are caused by the environment in which you live.
+											It's hard to accept this, but you need ongoing mental consultation and emotional control of special situations.
+											</p> 
+										</c:if>
+										<!-- insomnia -->
+										<c:if test="${prediction_list[0].pre_sort eq 'insomnia'}"> 
+											<p style="color: white;">Do you have a negative environment in which you can not sleep?
+											If you know that, it is the most important to remove that.
+											It is also important to keep the sleep patterns the same all the time, and it is also helpful to listen to calm music.
+											Cherries, almonds, and warm milk are good foods for insomnia.
+											</p> 
+										</c:if>
+										<!-- Internet addiction -->
+										<c:if test="${prediction_list[0].pre_sort eq 'Internet addiction'}"> 
+											<p style="color: white;">Do you use too much internet?
+											You should abstain from using the internet for a fixed time.
+											It is also helpful to find other hobbies such as exercise.
+											You should be careful that the use of the internet doesn't affect your daily life.
+											</p> 
+										</c:if>
+									</p>
+								</c:if>
+								<c:if test="${prediction_list[0].pre_result eq 'no'}"> 
+									<h2 style="color: white;">Always keep your mental health as it is now.</h2> 
+								</c:if>
+							</c:if>
+						
 						<div class="row">
 						
 						
 							<article class="12u 12u(mobile) special">
-								<p class="image featured"><img src="resources/images/pic07.jpg" alt="" /></p>
+								
+								
+								
 								<header>
-									<h3><a href="#">Gravida aliquam penatibus</a></h3>
+									
 								</header>
-								<p>
-									<!-- 예측된 결과가 없을 경우 -->
-									<c:if test="${prediction_count <= 0}"> 
-										<h2>"Oops! You haven't finished the survey yet."</h2>
-									</c:if>
-									<!-- 예측된 결과가 있을 경우 -->
-									<c:if test="${prediction_count > 0}"> 
-										<c:if test="${prediction_list[0].pre_sort eq 'depression'}">
-											<c:if test="${prediction_list[0].pre_result eq 'yes'}"> 
-												<h2>Recently, you have been suffering from <span style="color: blue;"><strong>${prediction_list[0].pre_sort}</strong></span>.</h2>
-											</c:if>
-										</c:if>
-										
-										
-									</c:if>
-								</p>
+								
 								
 								<p>
-									<h3>Manager's Comment : </h3>
+									<h3 style="color: white;">Manager's Comment : </h3>
 									<div class="row">
 										<div class="12u$ 12u$(mobile)">
 										<textarea name="comment" placeholder="" style="width:100%;border:1;overflow:visible;text-overflow:ellipsis;"

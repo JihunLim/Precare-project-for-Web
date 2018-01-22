@@ -54,8 +54,8 @@
                        			</s:authorize>
                        			
                        			<s:authorize access="isAnonymous()">
-                           			<li><a href="#loginLayer" class="btn-example">Login</a></li>
-                           			<li><a href="#layer2" class="btn-example">Sign Up</a>
+                           			<li><a href="#loginLayer" class="btn-example"><span class="icon fa-sign-in"></span>Login</a></li>
+                           			<li><a href="#layer2" class="btn-example"><span class="icon fa-user-plus"></span>Sign Up</a>
                        			</s:authorize>
 							</ul>
 						</nav>
