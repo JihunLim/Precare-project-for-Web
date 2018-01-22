@@ -1980,6 +1980,80 @@
 			table.default tfoot {
 				border-top: solid 2px #e5e5e5;
 			}
+			
+/* Pop Up Layer */
+
+	.pop-layer .pop-container {
+	  padding: 20px 25px;
+	}
+	
+	.pop-layer p.ctxt {
+	  color: #666;
+	  line-height: 25px;
+	}
+	
+	.pop-layer .btn-r {
+	  width: 100%;
+	  margin: 10px 0 20px;
+	  padding-top: 10px;
+	  border-top: 1px solid #DDD;
+	  text-align: right;
+	}
+	
+	.pop-layer {
+	  display: none;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  width: 650px;
+	  height: auto;
+	  background-color: #fff;
+	  border: 5px solid #3571B5;
+	  z-index: 10;
+	}
+	
+	.dim-layer .dim-layer2{
+	  display: none;
+	  position: fixed;
+	  _position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  z-index: 100;
+	}
+	
+	.dim-layer .dimBg .dim-layer2{
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  background: #000;
+	  opacity: .5;
+	  filter: alpha(opacity=50);
+	}
+	
+	.dim-layer .pop-layer .dim-layer2{
+	  display: block;
+	}
+	
+	a.btn-layerClose {
+	  display: inline-block;
+	  height: 25px;
+	  padding: 0 14px 0;
+	  border: 1px solid #304a8a;
+	  background-color: #3f5a9d;
+	  font-size: 13px;
+	  color: #fff;
+	  line-height: 25px;
+	}
+	
+	a.btn-layerClose:hover {
+	  border: 1px solid #091940;
+	  background-color: #1f326a;
+	  color: #fff;
+	}
 
 /* Button */
 
@@ -3039,4 +3113,13 @@
 						margin-bottom: 2em;
 					}
 
+	}
+	
+	/* cure section */
+	#cure{
+		position: relative;
+		background-image: url("../../images/result_bg.jpg");
+		background-size: cover;
+		background-position: center center;
+		cursor: default;
 	}

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script>alert('Sorry, we can not save your comment. \nPlease try again after few minutes.');history.back();</script>
+<script>alert('Sorry, something went wrong. \nPlease try again after few minutes.');history.back();</script>
 <title>403 Error</title>
 </head>
 <body>

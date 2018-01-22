@@ -21,17 +21,7 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="<%=cp%>/resources/assets/css/ie8.css" /><![endif]-->
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
-		<script type="text/javascript">
-				var box1 = "<b><font color='red'>box1 -> 여기에 관련된 내용 쓰기</font></b>";
-				var box2 = "<b><font color='green'>box2 -> 여기에 관련된 내용 쓰기</font></b>";
-				
-				function boxContextChange(selectedBox){
-					var contentView = document.getElementById("contentView");
-					contentView.innerHTML = selectedBox;
-				}
-				
 		
-			</script>
 	</head>
 	<body class="homepage">
 		<div id="page-wrapper">
@@ -42,9 +32,9 @@
 					<!-- Inner -->
 						<div class="inner">
 							<header>
-								<h1><a href="index.html" id="logo">Precare</a></h1>
+								<h1><span id="logo">Precare</span></h1>
 								<hr />
-								<p style="font-weight: 800;">Hello, ${user_name}!<br /></p> 
+								<p style="font-weight: 800;">Hello, ${user_name}.<br /></p> 
 								<p style="font-weight: 700;">We will prevent you from getting mental sick before you get hurt.</p>
 							</header>
 							<footer>
@@ -55,75 +45,83 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="home">Home</a></li>
-								<li><a href="showResult">Management</a></li>
+								<li><a href="home"><span class="icon fa-home"></span>Home</a></li>
+								<li><a href="showResult"><span class="icon fa-universal-access"></span>Management</a></li>
 								
 								<s:authorize access="isAuthenticated()">
                            			<li><a href="${pageContext.request.contextPath}/j_spring_security_logout"> <span class="icon fa-sign-out"></span>[Log Out]</a></li>
+                           			<li><a href="#settingLayer" class="btn-example"><span class="icon fa-cog"></span>Setting</a>
                        			</s:authorize>
                        			
                        			<s:authorize access="isAnonymous()">
-                           			<li><a href="loginForm">Login</a></li>
+                           			<li><a href="#loginLayer" class="btn-example"><span class="icon fa-sign-in"></span>Login</a></li>
+                           			<li><a href="#layer2" class="btn-example"><span class="icon fa-user-plus"></span>Sign Up</a>
                        			</s:authorize>
-					
 							</ul>
 						</nav>
 				</div>
 
 
 			<!-- Banner -->
-				<section id="banner" style="background-image: url('../../../resources/images/img_header.jpg');">
+				<section id="banner">
 					<header>
-						<h2>Welcome to the <strong>Precare</strong>.</h2>
+						<h2>MS Imagine Cup 2018 : Wherever Team <br /><strong>“Precare”</strong></h2>
 						<p>
-							We introduce noticeable sites that provide information about </br><strong>depression</strong> and <strong>smartphone addiction</strong> and help to prevent them.
+							Let's treat <strong>mental illness</strong> through daily surveys using <strong>Big data & Machine learning</strong> Technology before you get sick.
 						</p>
 					</header>
 				</section>
 
 			<!-- Carousel -->
-			
 	
 				<section class="carousel">
 					<div class="reel">
 						<article>
-							<a href="https://www.nimh.nih.gov/health/topics/depression/index.shtml" class="image featured scrolly" onclick="boxContextChange(box1)"><img src="resources/images/NIMH.jpg" alt="" /></a>
+							<a href="#depLayer" class="image featured scrolly btn-example"><img src="http://www.abc.net.au/news/image/8379858-3x2-940x627.jpg" alt="Depression" width="120px" height="200"/></a>
 							<header>
-								<h3><a href="https://www.nimh.nih.gov/health/topics/depression/index.shtml">National Institute of Mental Health</a></h3>
+								<h3><a href="#depLayer">Depression</a></h3>
 							</header>
-							<p>NIMH offers information about mental health and provides opportunities to help people heal.</p>
+							<p>What is depression and what can I do about it?</p>
 						</article>
 
 						<article>
-							<a href="https://adaa.org/tips#" class="image featured scrolly" onclick="boxContextChange(box2)"><img src="resources/images/WEBMD.jpg" alt="" /></a>
+							<a href="#panLayer" class="image featured scrolly btn-example"><img src="https://admin.herb.co/wp-content/uploads/2017/02/panicattack.jpg" alt="Panic disorder"  width="120px" height="200"/></a>
 							<header>
-								<h3><a href="https://adaa.org/tips#">WebMD</a></h3>
+								<h3><a href="#panLayer">Panic disorder</a></h3>
 							</header>
-							<p>WebMD is an American corporation known as an online publisher of news and information pertaining to human health including many mental health.</p>
+							<p>What is panic disorder and what can I do about it?</p>
 						</article>
 
 						<article>
-							<a href="https://www.helpguide.org/" class="image featured scrolly" onclick="boxContextChange(box3)"><img src="resources/images/HELPGUIDE.jpg" alt="" /></a>
+							<a href="#perLayer" class="image featured scrolly btn-example"><img src="http://www.healthcare-online.org/images/10405909/bipolar%20personality%20disorder.jpg" alt="Personality disorder" width="120px" height="200"/></a>
 							<header>
-								<h3><a href="https://www.helpguide.org/">HelpGuide</a></h3>
+								<h3><a href="#perLayer">Personality disorder</a></h3>
 							</header>
-							<p>HelpGuide provides mental health information and helps diagnose areas such as smartphone addiction and internet addiction.</p>
+							<p>What is personality disorder and what can I do about it?</p>
 						</article>
 
 						<article>
-							<a href="https://www.psychologytoday.com/" class="image featured scrolly" onclick="boxContextChange(box4)"><img src="resources/images/PT.jpg" alt="" /></a>
+							<a href="#insLayer" class="image featured scrolly btn-example"><img src="https://i.kinja-img.com/gawker-media/image/upload/t_original/tdejfyn7d1kvi80qgukw.jpg" alt="Insomnia" width="120px" height="200"/></a>
 							<header>
-								<h3><a href="https://www.psychologytoday.com/">Psychologytoday</a></h3>
+								<h3><a href="#insLayer">Insomnia</a></h3>
 							</header>
-							<p>Psychologytoday provides articles about health, disease. You can also search for nearby therapists and psychologists.</p>
+							<p>What is insomnia and what can I do about it?</p>
+						</article>
+						
+						<article>
+							<a href="#intLayer" class="image featured scrolly btn-example"><img src="https://pctechmag.com/wp-content/uploads/2015/08/3009043-poster-1280-now-176-are-you-internet-addicted.jpg" alt="Internet addiction" width="120px" height="200"/></a>
+							<header>
+								<h3><a href="#intLayer">Internet addiction</a></h3>
+							</header>
+							<p>What is internet addiction and what can I do about it?</p>
 						</article>
 
 					</div>
 				</section>
-
+			
 			<!-- Main (설문조사) -->
-			<div class="wrapper style2">
-				<article id="main" class="container special">
+			<div class="wrapper style2" style="background-image: url('resources/images/img_paper.jpg'); background-repeat:no-repeat; background-size: cover; background-attachment: fixed;">
+				<article id="main" class="container special" style="background-color:white; padding:10px 0px 10px 20px;">
 					<header>
 						<h2>Do <strong>survey</strong>.</h2>
 					</header>
@@ -148,7 +146,7 @@
 											<option value="1">Depression</option>
 											<option value="2">Panic disorder</option>
 											<option value="3">Personality disorder</option>
-											<option value="4">Dyslepsia</option>
+											<option value="4">Insomnia</option>
 											<option value="5">Internet addiction</option>
 										</select>
 									</div>
@@ -221,7 +219,8 @@
 							<footer>
 								<div class="form-actions">
 								<br />
-									<input type="submit" value="Submit" style="background: #0FAAB2; float:middle;"/>
+									<label style="text-align:center;"><input type="submit" value="Submit" style="background: #0FAAB2; float:middle;"/></label>
+									
 								</div>
 							</footer>				
 						</form>
@@ -233,17 +232,17 @@
 				<div class="wrapper style2">
 				<article id="write" class="container special">
 					<header>
-						<h2><strong>Progress</strong>.</h2>
+						<h2><strong>Progress</strong></h2>
 					</header>
 					<p id="contentView">
 						<!-- 진행상황 그래프로 표시하기 -->
-						<label for="myChart2"><h3>□ 부서 별 미실시 수</h3><br /></label>
+						<label for="myChart2"><h3>□ Progress status</h3><br /></label>
 			
 						<div class="row">
 							<!-- Bar Chart -->
 							<canvas id="myChart2"></canvas>
 							<script>
-								var maxNum = "<c:out value="${maxNumBar}"/>";
+								var maxNum = 15;
 								maxNum *= 1;
 								var h_barOptions = {
 									legend : {
@@ -262,60 +261,74 @@
 								};
 								var data_list = new Array();
 								var name_list = new Array();
-								<c:forEach items="${nameDept}" var="item">
-								name_list.push("${item}");
-								</c:forEach>
-								<c:forEach items="${numNonImplement}" var="item">
-								data_list.push("${item}");
-								</c:forEach>
-								var ctx = document.getElementById('myChart2').getContext(
-										'2d');
+								//input label
+								name_list.push("Depression\n(15)");
+								name_list.push("Panic disorder");
+								name_list.push("Personality disorder");
+								name_list.push("Insomnia");
+								name_list.push("Internet addiction");
+								//input data
+								data_list.push("${status_dep}");
+								data_list.push("${status_pan}");
+								data_list.push("${status_per}");
+								data_list.push("${status_ins}");
+								data_list.push("${status_int}");
+								var ctx = document.getElementById('myChart2').getContext('2d');
 								var myChart = new Chart(ctx, {
 									type : 'horizontalBar',
 									data : {
 										labels : name_list,
 										datasets : [ {
-											label : '사무실 보안점검 미실시 수',
+											label : 'status',
 											data : data_list,
-											backgroundColor : [ 'rgba(0, 99, 132, 0.6)',
+											backgroundColor : [ 
+												    'rgba(0, 99, 132, 0.6)',
 													'rgba(30, 99, 132, 0.6)',
 													'rgba(60, 99, 132, 0.6)',
 													'rgba(90, 99, 132, 0.6)',
-													'rgba(120, 99, 132, 0.6)',
-													'rgba(150, 99, 132, 0.6)',
-													'rgba(180, 99, 132, 0.6)',
-													'rgba(210, 99, 132, 0.6)',
-													'rgba(240, 99, 132, 0.6)',
-													'rgba(270, 99, 132, 0.6)' ],
-											borderColor : [ 'rgba(0, 99, 132, 1)',
+													'rgba(120, 99, 132, 0.6)'
+													],
+											borderColor : [
+												    'rgba(0, 99, 132, 1)',
 													'rgba(30, 99, 132, 1)',
 													'rgba(60, 99, 132, 1)',
 													'rgba(90, 99, 132, 1)',
-													'rgba(120, 99, 132, 1)',
-													'rgba(150, 99, 132, 1)',
-													'rgba(180, 99, 132, 1)',
-													'rgba(210, 99, 132, 1)',
-													'rgba(240, 99, 132, 1)',
-													'rgba(270, 99, 132, 1)' ],
+													'rgba(120, 99, 132, 1)'
+													],
 											borderWidth : 2,
 											hoverBorderWidth : 0
 										} ]
 									},
-									options : h_barOptions
+									options : {
+										legend : {
+											display : true,
+											position : 'bottom'
+										},
+										scales : {
+											xAxes : [ {
+												ticks : {
+													min : 0,
+													max : maxNum,
+													stepSize : 1
+												}
+											} ]
+										}
+									}
 								});
-							</script>
+								
+								</script>
 						</div>
 					</p>
 				</article>
 			</div>
 
 			<!-- Features -->
-				<div class="wrapper style1">
+				<div class="wrapper style1" style="background-image: url('resources/images/background1.jpg'); background-repeat:no-repeat;">
 
-					<section id="features" class="container special">
+					<section id="features" class="container special" >
 						<header>
 							<h2><a href="#" class="button" style="background: #0FAAB2" onclick="javascript:go2Post('<s:authentication property="name"/>');">See result </a></h2>
-							<p>You can check your result.</p>
+							<p><strong>Check your result!</strong></p>
 						</header>
 					</section>
 				</div>
@@ -332,7 +345,7 @@
 										<header>
 											<h3>Wherever Team in Korea!</h3>
 										</header>
-										<p>Urna nisl non quis interdum mus ornare ridiculus egestas ridiculus lobortis vivamus tempor aliquet.</p>
+										<p>Precare project for Microsoft Imagine cup 2018.</p>
 									</section>
 
 								<!-- Copyright -->
@@ -341,12 +354,108 @@
 											<li>&copy; Wherever Team. All rights reserved.</li><li>Developed by: Jihun Lim & Junghun Kim & Jungsoo Lee </a></li>
 										</ul>
 									</div>
-
 							</div>
-
 						</div>
 					</div>
 				</div>
+        
+        <!-- 레이어 팝업 (설정 창) -->
+		    <div id="settingLayer" class="pop-layer">
+		    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
+		        <div class="pop-container">
+		            <div class="pop-conts">
+		                <!--content //-->
+		                <iframe src="settingForm" style="width:100%; height:700px;" scrolling="auto"></iframe> 
+		                <!--// content-->
+		            </div>
+		        </div>
+		    </div>
+		
+		<!-- 레이어 팝업 (회원가입 창) -->
+		    <div id="layer2" class="pop-layer">
+		    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
+		        <div class="pop-container">
+		            <div class="pop-conts">
+		                <!--content //-->
+		                <iframe src="signUpForm" style="width:100%; height:700px;" scrolling="auto"></iframe> 
+		                <!--// content-->
+		            </div>
+		        </div>
+		    </div>
+		    
+	    <!-- 레이어 팝업 (로그인 창) -->
+		    <div id="loginLayer" class="pop-layer">
+		    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
+		        <div class="pop-container">
+		            <div class="pop-conts">
+		                <!--content //-->
+		                <iframe src="loginForm" style="width:100%; height:400px;" scrolling="auto"></iframe> 
+		                <!--// content-->
+		            </div>
+		        </div>
+		    </div>
+		    
+		<!-- 레이어 팝업 (우울증 창) -->
+	    <div id="depLayer" class="pop-layer">
+	    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
+	        <div class="pop-container">
+	            <div class="pop-conts">
+	                <!--content //-->
+	                <iframe src="depInfo" style="width:100%; height:590px;" scrolling="auto"></iframe> 
+	                <!--// content-->
+	            </div>
+	        </div>
+	    </div>
+	    
+	    <!-- 레이어 팝업 (공황장애 창) -->
+	    <div id="panLayer" class="pop-layer">
+	    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
+	        <div class="pop-container">
+	            <div class="pop-conts">
+	                <!--content //-->
+	                <iframe src="panInfo" style="width:100%; height:590px;" scrolling="auto"></iframe> 
+	                <!--// content-->
+	            </div>
+	        </div>
+	    </div>    
+	    
+	    <!-- 레이어 팝업 (성격장애 창) -->
+	    <div id="perLayer" class="pop-layer">
+	    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
+	        <div class="pop-container">
+	            <div class="pop-conts">
+	                <!--content //-->
+	                <iframe src="perInfo" style="width:100%; height:590px;" scrolling="auto"></iframe> 
+	                <!--// content-->
+	            </div>
+	        </div>
+	    </div>    
+	    
+	    <!-- 레이어 팝업 (수면장애 창) -->
+	    <div id="insLayer" class="pop-layer">
+	    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
+	        <div class="pop-container">
+	            <div class="pop-conts">
+	                <!--content //-->
+	                <iframe src="insInfo" style="width:100%; height:590px;" scrolling="auto"></iframe> 
+	                <!--// content-->
+	            </div>
+	        </div>
+	    </div>    
+	    
+	    <!-- 레이어 팝업 (인터넷중독 창) -->
+	    <div id="intLayer" class="pop-layer">
+	    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
+	        <div class="pop-container">
+	            <div class="pop-conts">
+	                <!--content //-->
+	                <iframe src="intInfo" style="width:100%; height:590px;" scrolling="auto"></iframe> 
+	                <!--// content-->
+	            </div>
+	        </div>
+	    </div>        
+	
+
 
 		</div>
 
@@ -357,6 +466,7 @@
 			<script src="<%=cp%>/resources/assets/js/jquery.onvisible.min.js"></script>
 			<script src="<%=cp%>/resources/assets/js/skel.min.js"></script>
 			<script src="<%=cp%>/resources/assets/js/util.js"></script>
+			<script src="<%=cp%>/resources/assets/js/layerPopUp.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="<%=cp%>/resources/assets/js/main.js"></script>
 			<script>

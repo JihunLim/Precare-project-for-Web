@@ -55,4 +55,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         SELECT count(*) FROM prediction where pre_userId = #{pre_userId} and pre_sort = #{pre_sort};
     </select>
     
+    <select id="selectAnswerDao" parameterType="hashmap" resultType="int">
+        select res_questionAnswer from result where res_userId = #{res_userId} and res_questionId like #{res_questionId} and res_status = #{res_status} order by res_id ASC;
+    </select>
+    
+    <insert id="insertPredictDao" parameterType="hashmap">
+        INSERT into prediction values(default, #{pre_userId}, #{pre_sort}, #{pre_result}, #{pre_probability}, default, default);
+    </insert>
+    
+    <insert id="insertUserDao" parameterType="com.wherever.precareweb.dto.UserDto">
+        INSERT into user values(#{user_id}, #{user_pwd}, #{user_name}, #{user_sex}, #{user_age}, #{user_birthday}, #{user_occupation}, #{user_manager}, default, default, default);
+    </insert>
+    
+    <select id="checkDuplicateIdDao" parameterType="string" resultType="int">
+        select count(*) from user where user_id = #{param1};
+    </select>
+    
+    <update id="updateManagerWithIdDao" parameterType="hashmap">
+    	UPDATE user set user_manager=#{user_manager} where user_id = #{user_id};
+    </update>
+    
+    <update id="updatePwdWithIdDao" parameterType="hashmap">
+    	UPDATE user set user_pwd=#{user_pwd} where user_id = #{user_id};
+    </update>
+    
+    
 </mapper>

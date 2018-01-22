@@ -63,7 +63,7 @@
 
 
 			<!-- Banner -->
-				<section id="banner" style="background-image: url('../../../resources/images/img_header.jpg');">
+				<section id="banner">
 					<header>
 						<h2>MS Imagine Cup 2018 : Wherever Team <br /><strong>“Precare”</strong></h2>
 						<p>
@@ -73,7 +73,6 @@
 				</section>
 
 			<!-- Carousel -->
-			
 	
 				<section class="carousel">
 					<div class="reel">

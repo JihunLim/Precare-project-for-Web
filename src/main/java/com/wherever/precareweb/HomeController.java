@@ -735,5 +735,11 @@ public class HomeController {
 		return resultPage;
 	}
 	
+	@RequestMapping("/android") 
+	public void androidTest(Locale locale, Model model, HttpServletRequest request) throws Exception {
+		System.out.println("Android로 접급했습니다.");
+		
+	}
+	
 }
 
