@@ -48,5 +48,10 @@ public interface PrecareDao {
 	public void updateManagerWithIdDao(Map data);
 	//비번 수정하기
 	public void updatePwdWithIdDao(Map data);
+	//predict id로 결과 가져오기
+	public Prediction selectPredictionWithIdDao(String data); 
+	
+	//테스트
+	public void insertTestDao(String tempStr);
 	
 }

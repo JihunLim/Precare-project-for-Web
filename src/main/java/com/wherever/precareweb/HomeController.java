@@ -250,12 +250,15 @@ public class HomeController {
 	public String showResult(Locale locale, Model model, HttpServletRequest request) throws Exception {
 		String page = "list/resultPage";
 		Boolean checkResultToCome = false;
+		Prediction preWithIdContent = null;
 		String managers = null;
 		String[] argManagers = null;
 		String loginId = SecurityContextHolder.getContext().getAuthentication().getName().toString();
 		//use this under code when you use db.
 		PrecareDao dao = sqlSession.getMapper(PrecareDao.class);
 		String user_id= request.getParameter("user_id"); 
+		String target_preId = request.getParameter("target_preId");
+		
 		if(user_id == null || "".equals(user_id) || "anonymousUser".equals(user_id)) {
 			//get current login user's infomation
 			user_id= loginId; 
@@ -300,14 +303,17 @@ public class HomeController {
 		} 
 		model.addAttribute("prediction_count", numPrediction);
 		model.addAttribute("prediction_list", predictionList);
+		System.out.println("target_preid : " + target_preId);
+		if(target_preId != null) { 
+			preWithIdContent = dao.selectPredictionWithIdDao(target_preId);
+		}
+		else {
+			if(numPrediction > 0)
+				preWithIdContent = (Prediction)predictionList.get(0);
+		}
 		
-		//System.out.println("num : "+numPrediction);
-		//System.out.println("info : "+predictionList.get(0).getPre_sort());
-		//System.out.println("info : "+predictionList.get(0).getPre_result());
-		
-		
-		
-		
+		model.addAttribute("target_prediction", preWithIdContent);
+	
 		
 		return page;
 	}
@@ -738,6 +744,10 @@ public class HomeController {
 	@RequestMapping("/android") 
 	public void androidTest(Locale locale, Model model, HttpServletRequest request) throws Exception {
 		System.out.println("Android로 접급했습니다.");
+		 PrecareDao dao = sqlSession.getMapper(PrecareDao.class);
+		 request.setCharacterEncoding("UTF-8");
+		String tempStr = request.getParameter("test");
+		dao.insertTestDao(tempStr);
 		
 	}
 	

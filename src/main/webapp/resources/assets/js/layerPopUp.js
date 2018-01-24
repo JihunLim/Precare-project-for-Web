@@ -25,6 +25,7 @@ $('.btn-example').click(function(){
         }
 
         $el.find('a.btn-layerClose').click(function(){
+        	location.reload();
             isDim ? $('.dim-layer').fadeOut() : $el.fadeOut(); // 닫기 버튼을 클릭하면 레이어가 닫힌다.
             return false;
         });

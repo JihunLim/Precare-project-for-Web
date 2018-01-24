@@ -54,7 +54,7 @@
                        			</s:authorize>
                        			
                        			<s:authorize access="isAnonymous()">
-                           			<li><a href="#loginLayer" class="btn-example"><span class="icon fa-sign-in"></span>Login</a></li>
+                           			<li><a href="loginForm"><span class="icon fa-sign-in"></span>Login</a></li>
                            			<li><a href="#layer2" class="btn-example"><span class="icon fa-user-plus"></span>Sign Up</a>
                        			</s:authorize>
 							</ul>
@@ -77,7 +77,7 @@
 				<section class="carousel">
 					<div class="reel">
 						<article>
-							<a href="#depLayer" class="image featured scrolly btn-example"><img src="http://www.abc.net.au/news/image/8379858-3x2-940x627.jpg" alt="Depression" width="120px" height="200"/></a>
+							<a href="#depLayer" class="image featured scrolly btn-example"><img src="resources/images/img_dep.jpg" alt="Depression" width="120px" height="200"/></a>
 							<header>
 								<h3><a href="#depLayer">Depression</a></h3>
 							</header>
@@ -85,7 +85,7 @@
 						</article>
 
 						<article>
-							<a href="#panLayer" class="image featured scrolly btn-example"><img src="https://admin.herb.co/wp-content/uploads/2017/02/panicattack.jpg" alt="Panic disorder"  width="120px" height="200"/></a>
+							<a href="#panLayer" class="image featured scrolly btn-example"><img src="resources/images/img_pan.jpg" alt="Panic disorder"  width="120px" height="200"/></a>
 							<header>
 								<h3><a href="#panLayer">Panic disorder</a></h3>
 							</header>
@@ -93,7 +93,7 @@
 						</article>
 
 						<article>
-							<a href="#perLayer" class="image featured scrolly btn-example"><img src="http://www.healthcare-online.org/images/10405909/bipolar%20personality%20disorder.jpg" alt="Personality disorder" width="120px" height="200"/></a>
+							<a href="#perLayer" class="image featured scrolly btn-example"><img src="resources/images/img_per.jpg" alt="Personality disorder" width="120px" height="200"/></a>
 							<header>
 								<h3><a href="#perLayer">Personality disorder</a></h3>
 							</header>
@@ -101,7 +101,7 @@
 						</article>
 
 						<article>
-							<a href="#insLayer" class="image featured scrolly btn-example"><img src="https://i.kinja-img.com/gawker-media/image/upload/t_original/tdejfyn7d1kvi80qgukw.jpg" alt="Insomnia" width="120px" height="200"/></a>
+							<a href="#insLayer" class="image featured scrolly btn-example"><img src="resources/images/img_ins.jpg" alt="Insomnia" width="120px" height="200"/></a>
 							<header>
 								<h3><a href="#insLayer">Insomnia</a></h3>
 							</header>
@@ -109,7 +109,7 @@
 						</article>
 						
 						<article>
-							<a href="#intLayer" class="image featured scrolly btn-example"><img src="https://pctechmag.com/wp-content/uploads/2015/08/3009043-poster-1280-now-176-are-you-internet-addicted.jpg" alt="Internet addiction" width="120px" height="200"/></a>
+							<a href="#intLayer" class="image featured scrolly btn-example"><img src="resources/images/img_int.jpg" alt="Internet addiction" width="120px" height="200"/></a>
 							<header>
 								<h3><a href="#intLayer">Internet addiction</a></h3>
 							</header>

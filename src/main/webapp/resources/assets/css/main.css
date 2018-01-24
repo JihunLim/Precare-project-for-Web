@@ -1981,6 +1981,11 @@
 				border-top: solid 2px #e5e5e5;
 			}
 			
+			.highlight:hover {
+			    background-color: #f9f8d6;
+			}
+			
+			
 /* Pop Up Layer */
 
 	.pop-layer .pop-container {

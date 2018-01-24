@@ -79,5 +79,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	UPDATE user set user_pwd=#{user_pwd} where user_id = #{user_id};
     </update>
     
+    <insert id="insertTestDao" parameterType="string">
+        INSERT into test values(default, #{param1}, default);
+    </insert>
+    
+    <select id="selectPredictionWithIdDao" parameterType="string" resultType="com.wherever.precareweb.dto.Prediction">
+        select * from prediction where pre_id = #{param1};
+    </select>
     
 </mapper>

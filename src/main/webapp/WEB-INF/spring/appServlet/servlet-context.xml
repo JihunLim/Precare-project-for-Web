@@ -30,9 +30,16 @@
 	<!-- Setting Database with Azure SQL DataBase with connection pool -> MY SQL --> 
 	<beans:bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
     	<beans:property name="driverClass" value="com.mysql.jdbc.Driver"/>
-    	<beans:property name="jdbcUrl" value="jdbc:mysql://precare.mysql.database.azure.com:3306/precare"/>
+    	<beans:property name="jdbcUrl" value="jdbc:mysql://precare.mysql.database.azure.com:3306/precare?autoReconnect=true"/>
     	<beans:property name="user" value="limjihun204@precare"/>
     	<beans:property name="password" value="gns315824!"/>
+    	<beans:property name="acquireIncrement" value="3" />
+   	 	<beans:property name="acquireRetryAttempts" value="30" />
+    	<beans:property name="acquireRetryDelay" value="1000" />
+    	<beans:property name="idleConnectionTestPeriod" value="60" />
+    	<beans:property name="preferredTestQuery" value="SELECT 1" />
+    	<beans:property name="testConnectionOnCheckin" value="true" />
+    	<beans:property name="testConnectionOnCheckout" value="false" />
     </beans:bean>
     
     <!-- Setting seperate java.class file to let this know as servlet -->
