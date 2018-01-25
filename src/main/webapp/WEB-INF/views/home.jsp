@@ -141,7 +141,7 @@
 									<input type="hidden" name="user_id" value=<s:authentication property="name"/>/>
 									<div class="controls">
 										<label class="control-label">Survey Topic </label>
-										<select name="sort" class="dropdown" onchange="changeValue(this.value)" style="float:left;" disabled>
+										<select name="sort" class="dropdown" onchange="changeValue(this.value)" style="float:left;" >
 											<option value="0">Auto</option>
 											<option value="1">Depression</option>
 											<option value="2">Panic disorder</option>

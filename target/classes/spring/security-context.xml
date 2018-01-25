@@ -17,6 +17,10 @@
     	<property name="password" value="gns315824!"/>
     </bean>
     
+    <!-- User password encrypt -->
+    <bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
+    
     <security:http pattern="/css/**" security="none"/>
     <security:http pattern="/bootstrap/**" security="none"/>
     <security:http pattern="/common/**" security="none"/>
@@ -31,6 +35,7 @@
 				users-by-username-query="select user_id,user_pwd,user_enabled from user where user_id=?;" 
 				authorities-by-username-query="select user_id, user_role from user where user_id=?;"
 				/>
+				<security:password-encoder ref="bcryptPasswordEncoder"/>
 		</security:authentication-provider>
 	</security:authentication-manager>
 	

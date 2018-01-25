@@ -1,5 +1,6 @@
 package com.wherever.precareweb;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,6 +11,8 @@ import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -17,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +42,9 @@ public class HomeController {
 	
 	@Autowired
 	public SqlSession sqlSession;
+	
+	@Autowired
+	BCryptPasswordEncoder pwdEncoder;
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -507,6 +514,7 @@ public class HomeController {
 			resultPage = "cmmn/saveDataFailure";
 			System.out.println(ex.getMessage());
 			System.out.println(ex.getCause());
+			System.out.println(ex.getLocalizedMessage());
 		}
 		return resultPage;
 	}	
@@ -590,7 +598,7 @@ public class HomeController {
 		try {
 			PrecareDao dao = sqlSession.getMapper(PrecareDao.class);
 			String user_id = request.getParameter("user_id");
-			String user_pwd = request.getParameter("user_pwd");
+			String user_pwd = pwdEncoder.encode(request.getParameter("user_pwd"));
 			String user_name = request.getParameter("user_name");
 			String user_sex = request.getParameter("user_sex");
 			String user_age = request.getParameter("user_age");
@@ -700,7 +708,7 @@ public class HomeController {
 		 try {
 	 	 PrecareDao dao = sqlSession.getMapper(PrecareDao.class);
 	 	 user_id = SecurityContextHolder.getContext().getAuthentication().getName().toString();
-         String user_pwd = request.getParameter("user_pwd");
+         String user_pwd = pwdEncoder.encode(request.getParameter("user_pwd"));
          tempMap.put("user_pwd", user_pwd);
          tempMap.put("user_id", user_id);
          dao.updatePwdWithIdDao(tempMap);
@@ -750,6 +758,55 @@ public class HomeController {
 		dao.insertTestDao(tempStr);
 		
 	}
+	
+	
+	@RequestMapping("/downloadExcel") 
+	public void downloadExcel(Locale locale, Model model, HttpServletRequest request) throws Exception {
+		 PrecareDao dao = sqlSession.getMapper(PrecareDao.class);
+		 request.setCharacterEncoding("UTF-8");
+		 
+		 String target_id = request.getParameter("target_id");
+		 String que_name = request.getParameter("que_name");
+		 String que_id = "";
+		 if("depression".equals(que_name))
+			 que_id = "001%"; 
+		 
+				 
+		  
+		 //경로 설정하기
+		 File savefile;
+		 String savepathname;
+		 String user_id = SecurityContextHolder.getContext().getAuthentication().getName().toString();
+		 String filename = "survey_result_"+user_id+".JPG";  //파일이름 임의로 지정
+	
+		 JFileChooser chooser = new JFileChooser();// 객체 생성
+		 chooser.setCurrentDirectory(new File("C:\\")); // 맨처음경로를 C로 함
+		 chooser.setFileSelectionMode(chooser.DIRECTORIES_ONLY); // 디렉토리만 선택가능
+	
+		 int re = chooser.showSaveDialog(null);
+		 if (re == JFileChooser.APPROVE_OPTION) { //디렉토리를 선택했으면
+			 savefile = chooser.getSelectedFile(); //선택된 디렉토리 저장하고
+		     savepathname = savefile.getAbsolutePath() + "\\" + filename;  //디렉토리결과+파일이름
+		     System.out.println(savepathname);
+		 }else{
+			 JOptionPane.showMessageDialog(null, "Please, select file.",
+		     "Caution", JOptionPane.WARNING_MESSAGE);
+			 return;
+		 }
+		
+		 //엑셀 파일 다운로드 하기
+		// ExcelWriter ew = new ExcelWriter(savefile.getAbsolutePath(), filename, dao.selectQuestinoWithSortDao(que_id), ,dao.selectAllUserWithIdDao(user_id));
+		 ExcelWriter ew = new ExcelWriter();
+    	 try {
+     		ew.writeData(); 		
+		 } catch (Exception e) {
+		 	System.out.println("Excel download error!!");
+		 	e.printStackTrace();
+		 }
+		
+	}	
+	
+	
 	
 }
 

@@ -129,11 +129,13 @@
 					<!-- None -->
 						<!-- 예측된 결과가 없을 경우 -->
 							<c:if test="${prediction_count <= 0}"> 
+								<header>
+									<h2 style="color: black;"> Helpful Solutions for <strong style="color: black;">${user_name}.</strong></h2>
+								</header>
 								<p align="center" style="text-align:center;">
-										        <iframe src="https://www.youtube.com/embed/vOSYmLER664" width="640" height="320" frameborder="0" allowfullscreen=""></iframe>
+										        <iframe src="https://www.youtube.com/embed/sKTzZe52nB0" width="640" height="320" frameborder="0" allowfullscreen=""></iframe>
 										     </p>
-										     <p>You have not done survey yet.<p> 
-										     <p>It’s important to take care of yourself and get the most from life. Below are 7 practical ways to look after your mental health. Making simple changes to how you live doesn’t need to cost a fortune or take up loads of time. Anyone can follow this advice. Why not start today?<p />
+										     <p>You haven't completed the survey yet but, it’s important to take care of yourself and get the most from life. Below are 7 practical ways to look after your mental health. Making simple changes to how you live doesn’t need to cost a fortune or take up loads of time. Anyone can follow this advice. Why not start today?<p />
 											 		<ul><strong>Talking about your feelings can help you stay in good mental health and deal with times when you feel troubled.</strong></ul>
 										     		<li><strong>Regular exercise can boost your self-esteem and can help you concentrate,</strong></li>
 										     		<li><strong>Your brain needs a mix of nutrients in order to stay healthy and function well,</strong></li>
@@ -234,7 +236,7 @@
 								</c:if>
 								<c:if test="${target_prediction.pre_result eq 'no'}"> 
 									<p align="center" style="text-align:center;">
-										        <iframe src="https://www.youtube.com/embed/vOSYmLER664" width="640" height="320" frameborder="0" allowfullscreen=""></iframe>
+										        <iframe src="https://www.youtube.com/embed/sKTzZe52nB0" width="640" height="320" frameborder="0" allowfullscreen=""></iframe>
 										     </p>
 										     <p>Congratulations! It is amazing to keep a good mental health in modern society.<p> 
 										     <p>It’s important to take care of yourself and get the most from life. Below are 7 practical ways to look after your mental health. Making simple changes to how you live doesn’t need to cost a fortune or take up loads of time. Anyone can follow this advice. Why not start today?<p />

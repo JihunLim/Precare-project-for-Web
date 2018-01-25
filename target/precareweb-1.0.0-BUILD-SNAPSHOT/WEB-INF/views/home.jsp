@@ -79,7 +79,7 @@
 						<article>
 							<a href="#depLayer" class="image featured scrolly btn-example"><img src="resources/images/img_dep.jpg" alt="Depression" width="120px" height="200"/></a>
 							<header>
-								<h3><a href="#depLayer">Depression</a></h3>
+								<h3><a href="#depLayer" class="btn-example">Depression</a></h3>
 							</header>
 							<p>What is depression and what can I do about it?</p>
 						</article>
@@ -87,7 +87,7 @@
 						<article>
 							<a href="#panLayer" class="image featured scrolly btn-example"><img src="resources/images/img_pan.jpg" alt="Panic disorder"  width="120px" height="200"/></a>
 							<header>
-								<h3><a href="#panLayer">Panic disorder</a></h3>
+								<h3><a href="#panLayer" class="btn-example">Panic disorder</a></h3>
 							</header>
 							<p>What is panic disorder and what can I do about it?</p>
 						</article>
@@ -95,7 +95,7 @@
 						<article>
 							<a href="#perLayer" class="image featured scrolly btn-example"><img src="resources/images/img_per.jpg" alt="Personality disorder" width="120px" height="200"/></a>
 							<header>
-								<h3><a href="#perLayer">Personality disorder</a></h3>
+								<h3><a href="#perLayer" class="btn-example">Personality disorder</a></h3>
 							</header>
 							<p>What is personality disorder and what can I do about it?</p>
 						</article>
@@ -103,7 +103,7 @@
 						<article>
 							<a href="#insLayer" class="image featured scrolly btn-example"><img src="resources/images/img_ins.jpg" alt="Insomnia" width="120px" height="200"/></a>
 							<header>
-								<h3><a href="#insLayer">Insomnia</a></h3>
+								<h3><a href="#insLayer" class="btn-example">Insomnia</a></h3>
 							</header>
 							<p>What is insomnia and what can I do about it?</p>
 						</article>
@@ -111,7 +111,7 @@
 						<article>
 							<a href="#intLayer" class="image featured scrolly btn-example"><img src="resources/images/img_int.jpg" alt="Internet addiction" width="120px" height="200"/></a>
 							<header>
-								<h3><a href="#intLayer">Internet addiction</a></h3>
+								<h3><a href="#intLayer" class="btn-example">Internet addiction</a></h3>
 							</header>
 							<p>What is internet addiction and what can I do about it?</p>
 						</article>
@@ -141,7 +141,7 @@
 									<input type="hidden" name="user_id" value=<s:authentication property="name"/>/>
 									<div class="controls">
 										<label class="control-label">Survey Topic </label>
-										<select name="sort" class="dropdown" onchange="changeValue(this.value)" style="float:left;">
+										<select name="sort" class="dropdown" onchange="changeValue(this.value)" style="float:left;" >
 											<option value="0">Auto</option>
 											<option value="1">Depression</option>
 											<option value="2">Panic disorder</option>

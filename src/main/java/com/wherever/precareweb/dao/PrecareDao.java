@@ -50,6 +50,12 @@ public interface PrecareDao {
 	public void updatePwdWithIdDao(Map data);
 	//predict id로 결과 가져오기
 	public Prediction selectPredictionWithIdDao(String data); 
+	//해당 종류의 문제 질문 뽑아오기
+	public ArrayList<String> selectQuestinoWithSortDao(String data);
+	
+	
+	
+	
 	
 	//테스트
 	public void insertTestDao(String tempStr);

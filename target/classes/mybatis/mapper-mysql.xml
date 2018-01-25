@@ -87,4 +87,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         select * from prediction where pre_id = #{param1};
     </select>
     
+    <select id="selectQuestinoWithSortDao" parameterType="string" resultType="string">
+        select que_text from question where que_id like #{param1};
+    </select>
+    
 </mapper>
