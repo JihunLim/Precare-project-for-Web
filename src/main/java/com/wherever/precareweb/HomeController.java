@@ -216,7 +216,7 @@ public class HomeController {
 						model.addAttribute("id_question3", que.getQue_id());
 						continue;
 					}
-				}else if("Dyslepsia".equals(que.getQue_sort())) {
+				}else if("Imsomnia".equals(que.getQue_sort())) {
 					//4. 수면장애 문제 추출 및 전달
 					if(nextInsomniaId.equals(que.getQue_id())) {
 						model.addAttribute("question4", que.getQue_text());
@@ -458,51 +458,51 @@ public class HomeController {
 				}	
 //				}else if(String.valueOf(endNumQuestion.get("qen_panicENum")).equals(String.valueOf(Integer.parseInt(id_question2.substring(3, 6))))) { 
 //					//공황장애 끝낸 경우
-//					tempMap.put("res_questionId", id_question2.substring(0,3)+"%");
+//					tempMap.put("res_questionId", "002%");
 //					tempMap.put("res_status", panStatus);
 //					pm.depressionPredictor(dao.selectAnswerDao(tempMap), userData); //수정해야 함
 //					//우울증 결과 db에 저장시키기
 //					Map preMap2 = new HashMap();
 //					preMap2.put("pre_userId", user_id);
-//					preMap2.put("pre_sort", "depression");
-//					preMap2.put("pre_result", pm.getResult());
-//					preMap2.put("pre_probability", pm.getPosibility());
+//					preMap2.put("pre_sort", "Panic disorder");
+//					preMap2.put("pre_result", pm.getF_result());
+//					preMap2.put("pre_probability", pm.getF_posibility());
 //					dao.insertPredictDao(preMap2); 
 //				}else if(String.valueOf(endNumQuestion.get("qen_personalityENum")).equals(String.valueOf(Integer.parseInt(id_question3.substring(3, 6))))) {
 //					//성격장애 끝낸 경우
-//					tempMap.put("res_questionId", id_question3.substring(0,3)+"%");
+//					tempMap.put("res_questionId", "003%");
 //					tempMap.put("res_status", perStatus);
 //					pm.depressionPredictor(dao.selectAnswerDao(tempMap), userData); //수정해야 함
 //					//성격장애 결과 db에 저장시키기
 //					Map preMap2 = new HashMap();
 //					preMap2.put("pre_userId", user_id);
 //					preMap2.put("pre_sort", "Personality disorder");
-//					preMap2.put("pre_result", pm.getResult());
-//					preMap2.put("pre_probability", pm.getPosibility());
+//					preMap2.put("pre_result", pm.getF_result());
+//					preMap2.put("pre_probability", pm.getF_posibility());
 //					dao.insertPredictDao(preMap2);
 //				}else if(String.valueOf(endNumQuestion.get("qen_dyslepsiaENum")).equals(String.valueOf(Integer.parseInt(id_question4.substring(3, 6))))) {
 //					//수면장애 끝낸 경우
-//					tempMap.put("res_questionId", id_question4.substring(0,3)+"%");
+//					tempMap.put("res_questionId", "004%");
 //					tempMap.put("res_status", dysStatus);
 //					pm.depressionPredictor(dao.selectAnswerDao(tempMap), userData); //수정해야 함
 //					//수면장애 결과 db에 저장시키기
 //					Map preMap2 = new HashMap();
 //					preMap2.put("pre_userId", user_id);
-//					preMap2.put("pre_sort", "Dyslepsia");
-//					preMap2.put("pre_result", pm.getResult());
-//					preMap2.put("pre_probability", pm.getPosibility());
+//					preMap2.put("pre_sort", "Imsomnia");
+//					preMap2.put("pre_result", pm.getF_result());
+//					preMap2.put("pre_probability", pm.getF_posibility());
 //					dao.insertPredictDao(preMap2);
 //				}else if(String.valueOf(endNumQuestion.get("qen_internetENum")).equals(String.valueOf(Integer.parseInt(id_question5.substring(3, 6))))) {
 //					//인터넷중독 끝낸 경우
-//					tempMap.put("res_questionId", id_question5.substring(0,3)+"%");
+//					tempMap.put("res_questionId", "005%");
 //					tempMap.put("res_status", intStatus);
 //					pm.depressionPredictor(dao.selectAnswerDao(tempMap), userData); //수정해야 함
 //					//인터넷중독 결과 db에 저장시키기
 //					Map preMap2 = new HashMap();
 //					preMap2.put("pre_userId", user_id);
 //					preMap2.put("pre_sort", "Internet addiction");
-//					preMap2.put("pre_result", pm.getResult());
-//					preMap2.put("pre_probability", pm.getPosibility());
+//					preMap2.put("pre_result", pm.getF_result());
+//					preMap2.put("pre_probability", pm.getF_posibility());
 //					dao.insertPredictDao(preMap2); 
 //				}
 				

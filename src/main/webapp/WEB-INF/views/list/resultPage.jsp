@@ -200,7 +200,7 @@
 										     <span class="icon fa-paper-plane"></span>Referenced Web-page : <a href="https://www.mind.org.uk/information-support/types-of-mental-health-problems/borderline-personality-disorder-bpd/self-care-for-bpd/#.WmdEbahl-Uk" target="_blank">MIND</a>	 
 										</c:if>
 										<!-- insomnia -->
-										<c:if test="${target_prediction.pre_sort eq 'insomnia'}"> 
+										<c:if test="${target_prediction.pre_sort eq 'Imsomnia'}"> 
 											 <p align="center" style="text-align:center;">
 										        <iframe src="https://www.youtube.com/embed/s3vaI15ICQg" width="640" height="320" frameborder="0" allowfullscreen=""></iframe>
 										     </p> 
