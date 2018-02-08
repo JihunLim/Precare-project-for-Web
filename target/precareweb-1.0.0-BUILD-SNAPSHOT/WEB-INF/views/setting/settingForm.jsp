@@ -41,7 +41,8 @@ table {
 	font-size:12px;
 	text-shadow: 1px 1px 0px #fff;
 	background:#eaebec;
-	margin:20px;
+	margin:10px;
+	width:480px;
 	border:#ccc 1px solid;
 
 	-moz-border-radius:3px;
@@ -122,7 +123,7 @@ table tr:hover td{
 .signUp {
    position: relative;
    margin: 30px auto;
-   width: 400px;
+   width: 500px;
    padding: 33px 25px 29px;
    background: #FFFFFF;
    border-bottom: 1px solid #C4C4C4;

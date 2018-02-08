@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="395a8e97-1842-4670-8834-6d5e4aae5ed6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wherever/precareweb/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/wherever/precareweb/HomeController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wherever/precareweb/PredictorMaker.java" afterPath="$PROJECT_DIR$/src/main/java/com/wherever/precareweb/PredictorMaker.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/notAccessUser.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/notAccessUser.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/notFoundUser.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/notFoundUser.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/notLoginUser.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/notLoginUser.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/saveDataFailure.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/saveDataFailure.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/saveDataSuccess.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/saveDataSuccess.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/saveManagerFailure.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/saveManagerFailure.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/saveSignUpFailure.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/saveSignUpFailure.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/saveSignUpSuccess.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/saveSignUpSuccess.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/successTaskWithSettingForm.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cmmn/successTaskWithSettingForm.jsp" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wherever/precareweb/ExcelWriter.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wherever/precareweb/HomeController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wherever/precareweb/PredictorMaker.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wherever/precareweb/dao/PrecareDao.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wherever/precareweb/dto/InvestigationDto.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wherever/precareweb/dto/Prediction.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wherever/precareweb/dto/ProgressViewDto.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wherever/precareweb/dto/QuestionDto.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wherever/precareweb/dto/ResultDto.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wherever/precareweb/dto/UserDto.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper-mysql.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mybatis-config.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring/security-context.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.wherever/precareweb/pom.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.wherever/precareweb/pom.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT.war" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/wherever/precareweb/ExcelWriter.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/wherever/precareweb/HomeController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/wherever/precareweb/PredictorMaker.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/wherever/precareweb/dao/PrecareDao.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/wherever/precareweb/dto/InvestigationDto.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/wherever/precareweb/dto/Prediction.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/wherever/precareweb/dto/ProgressViewDto.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/wherever/precareweb/dto/QuestionDto.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/wherever/precareweb/dto/ResultDto.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/wherever/precareweb/dto/UserDto.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/log4j.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis/mapper-mysql.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis/mybatis-config.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/spring/security-context.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/activation-1.1.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aopalliance-1.0.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aspectjrt-1.6.10.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/c3p0-0.9.2.1.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-codec-1.10.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-logging-1.2.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/httpclient-4.5.4.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/httpcore-4.4.7.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/javax.inject-1.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jcl-over-slf4j-1.6.6.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jstl-1.2.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/log4j-1.2.15.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/log4jdbc-remix-0.2.7.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mail-1.4.7.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mchange-commons-java-0.2.3.4.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mybatis-3.2.3.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mybatis-spring-1.2.2.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mysql-connector-java-5.1.31.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/poi-3.13.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/poi-ooxml-3.13.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/poi-ooxml-schemas-3.13.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/slf4j-api-1.6.6.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/slf4j-log4j12-1.6.6.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-aop-3.2.13.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-beans-3.2.13.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-context-3.2.13.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-context-support-4.0.4.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-core-3.2.13.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-expression-3.2.13.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-jdbc-3.2.9.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-security-acl-3.2.4.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-security-config-3.2.4.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-security-core-3.2.4.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-security-taglibs-3.2.4.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-security-web-3.2.4.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-tx-3.2.9.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-web-3.2.13.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-webmvc-3.2.13.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/stax-api-1.0.1.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/xmlbeans-2.6.0.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/spring/appServlet/servlet-context.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/spring/root-context.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/cmmn/notAccessUser.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/cmmn/notFoundUser.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/cmmn/notLoginUser.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/cmmn/saveDataFailure.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/cmmn/saveDataSuccess.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/cmmn/saveManagerFailure.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/cmmn/saveSignUpFailure.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/cmmn/saveSignUpSuccess.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/cmmn/successTaskWithSettingForm.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/content1.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/home.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/info/depInfo.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/info/insInfo.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/info/intInfo.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/info/panInfo.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/info/perInfo.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/list/resultPage.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/login/loginForm.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/login/loginForm2.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/login/loginSuccess.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/login/signUpForm.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/manager/test.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/setting/settingForm.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/WEB-INF/web.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/common/error.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/css/font-awesome.min.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/css/ie8.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/css/images/arrow.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/css/infostyle.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/css/loginstyle.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/css/main.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/fonts/FontAwesome.otf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/fonts/fontawesome-webfont.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/ie/PIE.htc" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/ie/backgroundsize.min.htc" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/ie/html5shiv.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/ie/respond.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/jquery.dropotron.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/jquery.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/jquery.onvisible.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/jquery.scrolly.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/layerPopUp.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/layerPopUp2.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/skel.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/js/util.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/sass/ie8.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/sass/libs/_functions.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/sass/libs/_mixins.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/sass/libs/_skel.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/sass/libs/_vars.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/assets/sass/main.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/HELPGUIDE.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/NIMH.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/PT.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/WEBMD.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/background1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/background2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/background3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/bg_green.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/img_dep.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/img_header.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/img_ins.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/img_int.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/img_pan.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/img_paper.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/img_per.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic01.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic02.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic03.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic04.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic05.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic06.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic07.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic08.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic09.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic10.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic11.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic12.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic13.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic14.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/pic15.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/polygon-texture.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/temp_header.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/precareweb-1.0.0-BUILD-SNAPSHOT/resources/images/whitepaper.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/log4j.xml" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/classes/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="PrecareWeb.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PrecareWeb.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" column="38" lean-forward="true" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="478" />
+    <option name="y" value="6" />
+    <option name="width" value="1400" />
+    <option name="height" value="990" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="PrecareWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrecareWeb" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="395a8e97-1842-4670-8834-6d5e4aae5ed6" name="Default" comment="" />
+      <created>1517927565521</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1517927565521</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="478" y="6" width="1400" height="990" extended-state="0" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2496382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/PrecareWeb.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="38" lean-forward="true" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Detection</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>PrecareWeb</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

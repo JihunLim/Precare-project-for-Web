@@ -8,7 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 		alert('Your registration has been successfully completed.');
-		location.href="<%=cp%>/showResult";
+		parent.location.href="<%=cp%>/home";
+		self.close();
 </script>
 <title></title>
 </head>

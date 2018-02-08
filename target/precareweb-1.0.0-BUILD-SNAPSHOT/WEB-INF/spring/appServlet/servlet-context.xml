@@ -43,7 +43,9 @@
     </beans:bean>
     
     <!-- Setting seperate java.class file to let this know as servlet -->
-	 <beans:bean id="homeController" class="com.wherever.precareweb.HomeController"></beans:bean>
+	<beans:bean id="homeController" class="com.wherever.precareweb.HomeController"></beans:bean>
+	<beans:bean id="email" class="com.wherever.precareweb.emailService.Email"></beans:bean>
+	<beans:bean id="emailSender" class="com.wherever.precareweb.emailService.EmailSender"></beans:bean>
 	
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <beans:property name="dataSource" ref="dataSource"></beans:property>
@@ -66,7 +68,7 @@
       <beans:property name="port" value="587" />
       <beans:property name="defaultEncoding" value="utf-8" />
       <beans:property name="username" value="jihunlim204@gmail.com" />
-      <beans:property name="password" value="YourPassword" />
+      <beans:property name="password" value="gns795135!!@" />
       <beans:property name="javaMailProperties">
          <beans:props>
                <beans:prop key="mail.transport.protocol">smtp</beans:prop>

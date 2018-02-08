@@ -18,7 +18,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -32,11 +32,14 @@ import com.wherever.precareweb.dto.ProgressViewDto;
 import com.wherever.precareweb.dto.QuestionDto;
 import com.wherever.precareweb.dto.ResultDto;
 import com.wherever.precareweb.dto.UserDto;
+import com.wherever.precareweb.emailService.Email;
+import com.wherever.precareweb.emailService.EmailSender;
 
 
 /**
  * Handles requests for the application home page.
  */
+//@EnableAutoConfiguration
 @Controller
 public class HomeController {
 	
@@ -47,7 +50,10 @@ public class HomeController {
 	BCryptPasswordEncoder pwdEncoder;
 
 	@Autowired
-	private JavaMailSender mailSender;
+	private EmailSender emailSender;
+	@Autowired
+	private Email email;
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -148,7 +154,7 @@ public class HomeController {
 				strTemp = "001";
 			}else {
 				//문제를 다 풀지 못한 경우 -> temp 숫자를 3자리의 문자열로 변경
-				strTemp = String.format("%03d", temp);
+				strTemp = String.format("%03d", temp+1);
 			}
 			nextPanicdisorderId = "002" + strTemp;
 			
@@ -160,7 +166,7 @@ public class HomeController {
 				strTemp = "001";
 			}else {
 				//문제를 다 풀지 못한 경우 -> temp 숫자를 3자리의 문자열로 변경
-				strTemp = String.format("%03d", temp);
+				strTemp = String.format("%03d", temp+1);
 			}
 			nextPersonalitydisorderId = "003" + strTemp;
 			
@@ -172,7 +178,7 @@ public class HomeController {
 				strTemp = "001";
 			}else {
 				//문제를 다 풀지 못한 경우 -> temp 숫자를 3자리의 문자열로 변경
-				strTemp = String.format("%03d", temp);
+				strTemp = String.format("%03d", temp+1);
 			}
 			nextInsomniaId = "004" + strTemp;
 			
@@ -184,7 +190,7 @@ public class HomeController {
 				strTemp = "001";
 			}else {
 				//문제를 다 풀지 못한 경우 -> temp 숫자를 3자리의 문자열로 변경
-				strTemp = String.format("%03d", temp);
+				strTemp = String.format("%03d", temp+1);
 			}
 			nextInternetaddictionId = "005" + strTemp;		
 		}
@@ -266,6 +272,7 @@ public class HomeController {
 		String user_id= request.getParameter("user_id"); 
 		String target_preId = request.getParameter("target_preId");
 		
+		//접근하고자 하는 사용자가 본인 자신일 경우
 		if(user_id == null || "".equals(user_id) || "anonymousUser".equals(user_id)) {
 			//get current login user's infomation
 			user_id= loginId; 
@@ -349,6 +356,7 @@ public class HomeController {
 	public String checkForm(Locale locale, Model model, HttpServletRequest request) throws Exception {
 		String resultPage = "cmmn/saveDataSuccess";
 		String user_id= SecurityContextHolder.getContext().getAuthentication().getName().toString();
+		UserDto userInfo = null;
 		ResultDto resDto = null;
 		HashMap<String, Integer> endNumQuestion = null; 
 		ArrayList<String> ansList = null;
@@ -366,12 +374,20 @@ public class HomeController {
 			//로그인이 되어있는 경우
 			//db에 데이터 저장하기
 			pm = new PredictorMaker();
+			userInfo = dao.selectAllUserWithIdDao(user_id);
 			//각 문제의 마지막 번호 
 			endNumQuestion = dao.selectQuestionEndNumDao();
 			//사용자 정보 저장
-			userData.put("age", 24);
-			userData.put("sex", "male");
-			userData.put("occupation", "yes");
+			userData.put("age", Integer.valueOf(userInfo.getUser_age()));
+			userData.put("sex", userInfo.getUser_sex());
+			userData.put("occupation", userInfo.getUser_occupation());
+			//보호자 정보 저장
+			String managers = dao.selectAllManagersWithIdDao(user_id);
+			String[] argManagers = null;
+			if(managers == null || "".equals(managers))
+				argManagers = null;
+			else
+				argManagers = managers.split(",");
 			/*
 			 * 설문조사 제출 알고리즘
 			 * 1. 설문조사 제출된 정보를 받아온다. 
@@ -412,7 +428,8 @@ public class HomeController {
 			int dysStatus = 0;
 			int intStatus = 0;
 			//문제 출제 방식
-			int sortNum = Integer.parseInt(request.getParameter("sort"));
+			//int sortNum = Integer.parseInt(request.getParameter("sort"));
+			int sortNum = 0;
 			if(sortNum == 0) {
 				//auto인 경우
 				//첫 번째 문제
@@ -431,7 +448,7 @@ public class HomeController {
 				resDto = new ResultDto(user_id, id_question3, question3, perStatus);
 				dao.insertSurveyAnswerDao(resDto);
 				//네 번째 문제
-				idSortMap.replace("pre_sort", "Dyslepsia");
+				idSortMap.replace("pre_sort", "Imsomnia");
 				dysStatus = dao.countStateWithIdAndSortDao(idSortMap)+1;
 				resDto = new ResultDto(user_id, id_question4, question4, dysStatus);
 				dao.insertSurveyAnswerDao(resDto);
@@ -443,7 +460,6 @@ public class HomeController {
 				//3. 검사하기 (각 유형의 문제를 끝마친 경우)
 					
 				if(String.valueOf(endNumQuestion.get("qen_depressionENum")).equals(String.valueOf(Integer.parseInt(id_question1.substring(3, 6))))) {
-					System.out.println("캬하나나하낳나하나5");
 					//우울증 검사를 마친 경우 -> 예측결과를 받아서 db에 저장함
 					tempMap.put("res_questionId", "001%");
 					tempMap.put("res_status", depStatus);
@@ -455,56 +471,95 @@ public class HomeController {
 					preMap2.put("pre_result", pm.getF_result());
 					preMap2.put("pre_probability", pm.getF_posibility());
 					dao.insertPredictDao(preMap2);
-				}	
-//				}else if(String.valueOf(endNumQuestion.get("qen_panicENum")).equals(String.valueOf(Integer.parseInt(id_question2.substring(3, 6))))) { 
-//					//공황장애 끝낸 경우
-//					tempMap.put("res_questionId", "002%");
-//					tempMap.put("res_status", panStatus);
-//					pm.depressionPredictor(dao.selectAnswerDao(tempMap), userData); //수정해야 함
-//					//우울증 결과 db에 저장시키기
-//					Map preMap2 = new HashMap();
-//					preMap2.put("pre_userId", user_id);
-//					preMap2.put("pre_sort", "Panic disorder");
-//					preMap2.put("pre_result", pm.getF_result());
-//					preMap2.put("pre_probability", pm.getF_posibility());
-//					dao.insertPredictDao(preMap2); 
-//				}else if(String.valueOf(endNumQuestion.get("qen_personalityENum")).equals(String.valueOf(Integer.parseInt(id_question3.substring(3, 6))))) {
-//					//성격장애 끝낸 경우
-//					tempMap.put("res_questionId", "003%");
-//					tempMap.put("res_status", perStatus);
-//					pm.depressionPredictor(dao.selectAnswerDao(tempMap), userData); //수정해야 함
-//					//성격장애 결과 db에 저장시키기
-//					Map preMap2 = new HashMap();
-//					preMap2.put("pre_userId", user_id);
-//					preMap2.put("pre_sort", "Personality disorder");
-//					preMap2.put("pre_result", pm.getF_result());
-//					preMap2.put("pre_probability", pm.getF_posibility());
-//					dao.insertPredictDao(preMap2);
-//				}else if(String.valueOf(endNumQuestion.get("qen_dyslepsiaENum")).equals(String.valueOf(Integer.parseInt(id_question4.substring(3, 6))))) {
-//					//수면장애 끝낸 경우
-//					tempMap.put("res_questionId", "004%");
-//					tempMap.put("res_status", dysStatus);
-//					pm.depressionPredictor(dao.selectAnswerDao(tempMap), userData); //수정해야 함
-//					//수면장애 결과 db에 저장시키기
-//					Map preMap2 = new HashMap();
-//					preMap2.put("pre_userId", user_id);
-//					preMap2.put("pre_sort", "Imsomnia");
-//					preMap2.put("pre_result", pm.getF_result());
-//					preMap2.put("pre_probability", pm.getF_posibility());
-//					dao.insertPredictDao(preMap2);
-//				}else if(String.valueOf(endNumQuestion.get("qen_internetENum")).equals(String.valueOf(Integer.parseInt(id_question5.substring(3, 6))))) {
-//					//인터넷중독 끝낸 경우
-//					tempMap.put("res_questionId", "005%");
-//					tempMap.put("res_status", intStatus);
-//					pm.depressionPredictor(dao.selectAnswerDao(tempMap), userData); //수정해야 함
-//					//인터넷중독 결과 db에 저장시키기
-//					Map preMap2 = new HashMap();
-//					preMap2.put("pre_userId", user_id);
-//					preMap2.put("pre_sort", "Internet addiction");
-//					preMap2.put("pre_result", pm.getF_result());
-//					preMap2.put("pre_probability", pm.getF_posibility());
-//					dao.insertPredictDao(preMap2); 
-//				}
+					//우울증 결과 보호자 이메일로 전송하기
+					try {
+						sendEmailToManager(userInfo, argManagers, "우울증", pm);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						System.out.println("Email 보내는 기능에 오류가 발생했습니다.");
+						e.printStackTrace();
+					}					
+				} if(String.valueOf(endNumQuestion.get("qen_panicENum")).equals(String.valueOf(Integer.parseInt(id_question2.substring(3, 6))))) { 
+					//공황장애 끝낸 경우
+					tempMap.put("res_questionId", "002%");
+					tempMap.put("res_status", panStatus);
+					pm.panicDisorderPredictor(dao.selectAnswerDao(tempMap), userData); //수정해야 함
+					//공황장애 결과 db에 저장시키기
+					Map preMap2 = new HashMap();
+					preMap2.put("pre_userId", user_id);
+					preMap2.put("pre_sort", "Panic disorder");
+					preMap2.put("pre_result", pm.getF_result());
+					preMap2.put("pre_probability", pm.getF_posibility());
+					dao.insertPredictDao(preMap2); 
+					//공황장애 결과 보호자 이메일로 전송하기
+					try {
+						sendEmailToManager(userInfo, argManagers, "공황장애", pm);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						System.out.println("Email 보내는 기능에 오류가 발생했습니다.");
+						e.printStackTrace();
+					}	
+				} if(String.valueOf(endNumQuestion.get("qen_personalityENum")).equals(String.valueOf(Integer.parseInt(id_question3.substring(3, 6))))) {
+					//성격장애 끝낸 경우
+					tempMap.put("res_questionId", "003%");
+					tempMap.put("res_status", perStatus);
+					pm.personalityDisorderPredictor(dao.selectAnswerDao(tempMap), userData); //수정해야 함
+					//성격장애 결과 db에 저장시키기
+					Map preMap2 = new HashMap();
+					preMap2.put("pre_userId", user_id);
+					preMap2.put("pre_sort", "Personality disorder");
+					preMap2.put("pre_result", pm.getF_result());
+					preMap2.put("pre_probability", pm.getF_posibility());
+					dao.insertPredictDao(preMap2);
+					//성격장애 결과 보호자 이메일로 전송하기
+					try {
+						sendEmailToManager(userInfo, argManagers, "성격장애", pm);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						System.out.println("Email 보내는 기능에 오류가 발생했습니다.");
+						e.printStackTrace();
+					}	
+				} if(String.valueOf(endNumQuestion.get("qen_dyslepsiaENum")).equals(String.valueOf(Integer.parseInt(id_question4.substring(3, 6))))) {
+					//수면장애 끝낸 경우
+					tempMap.put("res_questionId", "004%");
+					tempMap.put("res_status", dysStatus);
+					pm.imsomniaDisorderPredictor(dao.selectAnswerDao(tempMap), userData); //수정해야 함
+					//수면장애 결과 db에 저장시키기
+					Map preMap2 = new HashMap();
+					preMap2.put("pre_userId", user_id);
+					preMap2.put("pre_sort", "Imsomnia");
+					preMap2.put("pre_result", pm.getF_result());
+					preMap2.put("pre_probability", pm.getF_posibility());
+					dao.insertPredictDao(preMap2);
+					//수면장애 결과 보호자 이메일로 전송하기
+					try {
+						sendEmailToManager(userInfo, argManagers, "수면장애", pm);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						System.out.println("Email 보내는 기능에 오류가 발생했습니다.");
+						e.printStackTrace();
+					}	
+				} if(String.valueOf(endNumQuestion.get("qen_internetENum")).equals(String.valueOf(Integer.parseInt(id_question5.substring(3, 6))))) {
+					//인터넷중독 끝낸 경우
+					tempMap.put("res_questionId", "005%");
+					tempMap.put("res_status", intStatus);
+					pm.internetAddictionPredictor(dao.selectAnswerDao(tempMap), userData); //수정해야 함
+					//인터넷중독 결과 db에 저장시키기
+					Map preMap2 = new HashMap();
+					preMap2.put("pre_userId", user_id);
+					preMap2.put("pre_sort", "Internet addiction");
+					preMap2.put("pre_result", pm.getF_result());
+					preMap2.put("pre_probability", pm.getF_posibility());
+					dao.insertPredictDao(preMap2); 
+					//인터넷중독 결과 보호자 이메일로 전송하기
+					try {
+						sendEmailToManager(userInfo, argManagers, "인터넷중독", pm);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						System.out.println("Email 보내는 기능에 오류가 발생했습니다.");
+						e.printStackTrace();
+					}	
+				}
 				
 			}
 
@@ -518,7 +573,6 @@ public class HomeController {
 		}
 		return resultPage;
 	}	
-	
 	
 
 	@RequestMapping("/PredictorMaker") 
@@ -758,6 +812,23 @@ public class HomeController {
 		dao.insertTestDao(tempStr);
 		
 	}
+	
+	@Async("threadPoolTaskExecutor")
+    public void sendEmailToManager(UserDto userInfo, String[] argManagers, String strSort, PredictorMaker pm) throws Exception {
+        // do something
+		System.out.println("쓰레드가 돌아가고 있습니다. 여러분 !!!");
+		
+		for(String e_mail : argManagers) {
+			System.out.println("메일 보내고 있는 중!" + e_mail);
+			email.setReceiver(e_mail);
+			email.setSubject("[Precare] 결과알림 서비스 : "+userInfo.getUser_id()+" ("+userInfo.getUser_name()+")님의 "+strSort+" 결과를 알려드립니다.");
+			email.setContent("[Precare] 결과알림 서비스\n\n***피보호자 인적사항***\nE-mail : "+userInfo.getUser_id()+"\n성함 : "+userInfo.getUser_name()+
+					"\n나이 : "+userInfo.getUser_age()+"\n직업 : "+userInfo.getUser_occupation()+"\n"+strSort+"검사결과 : "+pm.getStrKrResult()+"\n\n자세한 정보는 Precare 사이트에서 확인 가능합니다.");
+			emailSender.SendEmail(email);
+			
+		}
+    }
+	
 	
 	
 	@RequestMapping("/downloadExcel") 

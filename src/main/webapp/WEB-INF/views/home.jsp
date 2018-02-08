@@ -74,7 +74,7 @@
 
 			<!-- Carousel -->
 	
-				<section class="carousel">
+				<section class="carousel" id="introduction">
 					<div class="reel">
 						<article>
 							<a href="#depLayer" class="image featured scrolly btn-example"><img src="resources/images/img_dep.jpg" alt="Depression" width="120px" height="200"/></a>
@@ -135,23 +135,6 @@
 					</c:if>
 						
 							<form name="mainForm" method="post" action="<%=cp%>/checkForm" onsubmit="return checkFormRule()">
-							<div class="row">
-	
-								<div class="4u$ 12u$(mobile)">
-									<input type="hidden" name="user_id" value=<s:authentication property="name"/>/>
-									<div class="controls">
-										<label class="control-label">Survey Topic </label>
-										<select name="sort" class="dropdown" onchange="changeValue(this.value)" style="float:left;" >
-											<option value="0">Auto</option>
-											<option value="1">Depression</option>
-											<option value="2">Panic disorder</option>
-											<option value="3">Personality disorder</option>
-											<option value="4">Insomnia</option>
-											<option value="5">Internet addiction</option>
-										</select>
-									</div>
-								</div>
-							</div>
 							
 							<!-- first question -->
 							<br /><br />
@@ -242,7 +225,7 @@
 							<!-- Bar Chart -->
 							<canvas id="myChart2"></canvas>
 							<script>
-								var maxNum = 15;
+								var maxNum = 20;
 								maxNum *= 1;
 								var h_barOptions = {
 									legend : {
@@ -263,10 +246,10 @@
 								var name_list = new Array();
 								//input label
 								name_list.push("Depression\n(15)");
-								name_list.push("Panic disorder");
-								name_list.push("Personality disorder");
-								name_list.push("Insomnia");
-								name_list.push("Internet addiction");
+								name_list.push("Panic disorder\n(13)");
+								name_list.push("Personality disorder\n(18)");
+								name_list.push("Insomnia\n(13)");
+								name_list.push("Internet addiction\n(20)");
 								//input data
 								data_list.push("${status_dep}");
 								data_list.push("${status_pan}");
@@ -397,7 +380,7 @@
 		    
 		<!-- 레이어 팝업 (우울증 창) -->
 	    <div id="depLayer" class="pop-layer">
-	    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
+	    <a href="#introduction" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
 	        <div class="pop-container">
 	            <div class="pop-conts">
 	                <!--content //-->
