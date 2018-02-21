@@ -2581,9 +2581,7 @@
 			transition: opacity 0.75s ease-in-out;
 		}
 
-			.carousel article.loading {
-				opacity: 0;
-			}
+			
 
 			.carousel article .image {
 				position: relative;
@@ -3110,3 +3108,17 @@
 		background-position: center center;
 		cursor: default;
 	}
+	
+	/* 반응형 유튜브 영상 넣기 */
+	.youtubeWrap {
+	  position: relative;
+	  width: 100%;
+	  padding-bottom: 56.25%;
+	}
+	.youtubeWrap iframe {
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	}
+	
+	

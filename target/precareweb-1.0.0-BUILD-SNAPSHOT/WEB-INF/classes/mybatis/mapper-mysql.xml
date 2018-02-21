@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     
     <update id="updateCommentWithIdDao" parameterType="hashmap">
-    	UPDATE prediction set pre_comment=#{comment} where pre_id = #{pre_id}
+    	UPDATE prediction set pre_comment=#{pre_comment} where pre_id = #{pre_id}
     </update>
     
     <select id="selectAllManagersWithIdDao" parameterType="string" resultType="string">

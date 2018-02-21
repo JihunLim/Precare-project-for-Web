@@ -18,6 +18,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="<%=cp%>/resources/assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="<%=cp%>/resources/assets/css/main.css" />
+		<link rel="stylesheet" href="<%=cp%>/resources/assets/css/needpopup.min.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="<%=cp%>/resources/assets/css/ie8.css" /><![endif]-->
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
@@ -77,41 +78,41 @@
 				<section class="carousel" id="introduction">
 					<div class="reel">
 						<article>
-							<a href="#depLayer" class="image featured scrolly btn-example"><img src="resources/images/img_dep.jpg" alt="Depression" width="120px" height="200"/></a>
+							<a href="#" class="image featured scrolly btn-example" data-needpopup-show="#depLayer2"><img src="resources/images/img_dep.jpg" alt="Depression" width="120px" height="200"/></a>
 							<header>
-								<h3><a href="#depLayer" class="btn-example">Depression</a></h3>
+								<h3><a href="#" class="btn-example" data-needpopup-show="#depLayer2">Depression</a></h3>
 							</header>
 							<p>What is depression and what can I do about it?</p>
 						</article>
 
 						<article>
-							<a href="#panLayer" class="image featured scrolly btn-example"><img src="resources/images/img_pan.jpg" alt="Panic disorder"  width="120px" height="200"/></a>
+							<a href="#" class="image featured scrolly btn-example" data-needpopup-show="#panLayer2"><img src="resources/images/img_pan.jpg" alt="Panic disorder"  width="120px" height="200"/></a>
 							<header>
-								<h3><a href="#panLayer" class="btn-example">Panic disorder</a></h3>
+								<h3><a href="#" class="btn-example" data-needpopup-show="#panLayer2">Panic disorder</a></h3>
 							</header>
 							<p>What is panic disorder and what can I do about it?</p>
 						</article>
 
 						<article>
-							<a href="#perLayer" class="image featured scrolly btn-example"><img src="resources/images/img_per.jpg" alt="Personality disorder" width="120px" height="200"/></a>
+							<a href="#" class="image featured scrolly btn-example" data-needpopup-show="#perLayer2"><img src="resources/images/img_per.jpg" alt="Personality disorder" width="120px" height="200"/></a>
 							<header>
-								<h3><a href="#perLayer" class="btn-example">Personality disorder</a></h3>
+								<h3><a href="#" class="btn-example" data-needpopup-show="#perLayer2">Personality disorder</a></h3>
 							</header>
 							<p>What is personality disorder and what can I do about it?</p>
 						</article>
 
 						<article>
-							<a href="#insLayer" class="image featured scrolly btn-example"><img src="resources/images/img_ins.jpg" alt="Insomnia" width="120px" height="200"/></a>
+							<a href="#" class="image featured scrolly btn-example" data-needpopup-show="#insLayer2"><img src="resources/images/img_ins.jpg" alt="Insomnia" width="120px" height="200"/></a>
 							<header>
-								<h3><a href="#insLayer" class="btn-example">Insomnia</a></h3>
+								<h3><a href="#" class="btn-example" data-needpopup-show="#insLayer2">Insomnia</a></h3>
 							</header>
 							<p>What is insomnia and what can I do about it?</p>
 						</article>
 						
 						<article>
-							<a href="#intLayer" class="image featured scrolly btn-example"><img src="resources/images/img_int.jpg" alt="Internet addiction" width="120px" height="200"/></a>
+							<a href="#" class="image featured scrolly btn-example" data-needpopup-show="#intLayer2"><img src="resources/images/img_int.jpg" alt="Internet addiction" width="120px" height="200"/></a>
 							<header>
-								<h3><a href="#intLayer" class="btn-example">Internet addiction</a></h3>
+								<h3><a href="#" class="btn-example" data-needpopup-show="#intLayer2">Internet addiction</a></h3>
 							</header>
 							<p>What is internet addiction and what can I do about it?</p>
 						</article>
@@ -141,11 +142,11 @@
 							<input type="hidden" name="id_question1" value="${id_question1}"/>
 							<label class="control-label">Q1. ${question1}</label>
 							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary"> <input type="radio" name="question1" id="option1" value="1" required>Very dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="question1" id="option2" value="2" required>Somewhat dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="question1" id="option3" value="3" required>Neutral</label>
-								<label class="btn btn-primary"> <input type="radio" name="question1" id="option3" value="4" required>Somewhat satisfied</label>
-								<label class="btn btn-primary"> <input type="radio" name="question1" id="option3" value="5" required>Very satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="question1" id="option1" value="1" required>Strongly Disagree</label> 
+								<label class="btn btn-primary"> <input type="radio" name="question1" id="option2" value="2" required>Disagree</label> 
+								<label class="btn btn-primary"> <input type="radio" name="question1" id="option3" value="3" required>Neither</label>
+								<label class="btn btn-primary"> <input type="radio" name="question1" id="option3" value="4" required>Agree</label>
+								<label class="btn btn-primary"> <input type="radio" name="question1" id="option3" value="5" required>Strongly Agree</label>
 							</div>
 								
 							<!-- Second question -->
@@ -153,11 +154,11 @@
 							<input type="hidden" name="id_question2" value="${id_question2}"/>
 							<label class="control-label">Q2. ${question2}</label>
 							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary"> <input type="radio" name="question2" id="option1" value="1" required>Very dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="question2" id="option2" value="2" required>Somewhat dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="question2" id="option3" value="3" required>Neutral</label>
-								<label class="btn btn-primary"> <input type="radio" name="question2" id="option3" value="4" required>Somewhat satisfied</label>
-								<label class="btn btn-primary"> <input type="radio" name="question2" id="option3" value="5" required>Very satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="question2" id="option1" value="1" required>Strongly Disagree</label> 
+								<label class="btn btn-primary"> <input type="radio" name="question2" id="option2" value="2" required>Disagree</label> 
+								<label class="btn btn-primary"> <input type="radio" name="question2" id="option3" value="3" required>Neither</label>
+								<label class="btn btn-primary"> <input type="radio" name="question2" id="option3" value="4" required>Agree</label>
+								<label class="btn btn-primary"> <input type="radio" name="question2" id="option3" value="5" required>Strongly Agree</label>
 							</div>
 							
 							<!-- Third question -->
@@ -165,11 +166,11 @@
 							<input type="hidden" name="id_question3" value="${id_question3}"/>
 							<label class="control-label">Q3. ${question3}</label>
 							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary"> <input type="radio" name="question3" id="option1" value="1" required>Very dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="question3" id="option2" value="2" required>Somewhat dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="question3" id="option3" value="3" required>Neutral</label>
-								<label class="btn btn-primary"> <input type="radio" name="question3" id="option3" value="4" required>Somewhat satisfied</label>
-								<label class="btn btn-primary"> <input type="radio" name="question3" id="option3" value="5" required>Very satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="question3" id="option1" value="1" required>Strongly Disagree</label> 
+								<label class="btn btn-primary"> <input type="radio" name="question3" id="option2" value="2" required>Disagree</label> 
+								<label class="btn btn-primary"> <input type="radio" name="question3" id="option3" value="3" required>Neither</label>
+								<label class="btn btn-primary"> <input type="radio" name="question3" id="option3" value="4" required>Agree</label>
+								<label class="btn btn-primary"> <input type="radio" name="question3" id="option3" value="5" required>Strongly Agree</label>
 							</div>
 							
 							<!-- Fourth question -->
@@ -177,11 +178,11 @@
 							<input type="hidden" name="id_question4" value="${id_question4}"/>
 							<label class="control-label">Q4. ${question4}</label>
 							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary"> <input type="radio" name="question4" id="option1" value="1" required>Very dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="question4" id="option2" value="2" required>Somewhat dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="question4" id="option3" value="3" required>Neutral</label>
-								<label class="btn btn-primary"> <input type="radio" name="question4" id="option3" value="4" required>Somewhat satisfied</label>
-								<label class="btn btn-primary"> <input type="radio" name="question4" id="option3" value="5" required>Very satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="question4" id="option1" value="1" required>Strongly Disagree</label> 
+								<label class="btn btn-primary"> <input type="radio" name="question4" id="option2" value="2" required>Disagree</label> 
+								<label class="btn btn-primary"> <input type="radio" name="question4" id="option3" value="3" required>Neither</label>
+								<label class="btn btn-primary"> <input type="radio" name="question4" id="option3" value="4" required>Agree</label>
+								<label class="btn btn-primary"> <input type="radio" name="question4" id="option3" value="5" required>Strongly Agree</label>
 							</div>
 							
 							<!-- Fifth question -->
@@ -189,11 +190,11 @@
 							<input type="hidden" name="id_question5" value="${id_question5}"/>
 							<label class="control-label">Q5. ${question5}</label>
 							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary"> <input type="radio" name="question5" id="option1" value="1" required>Very dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="question5" id="option2" value="2" required>Somewhat dissatisfied</label> 
-								<label class="btn btn-primary"> <input type="radio" name="question5" id="option3" value="3" required>Neutral</label>
-								<label class="btn btn-primary"> <input type="radio" name="question5" id="option3" value="4" required>Somewhat satisfied</label>
-								<label class="btn btn-primary"> <input type="radio" name="question5" id="option3" value="5" required>Very satisfied</label>
+								<label class="btn btn-primary"> <input type="radio" name="question5" id="option1" value="1" required>Strongly Disagree</label> 
+								<label class="btn btn-primary"> <input type="radio" name="question5" id="option2" value="2" required>Disagree</label> 
+								<label class="btn btn-primary"> <input type="radio" name="question5" id="option3" value="3" required>Neither</label>
+								<label class="btn btn-primary"> <input type="radio" name="question5" id="option3" value="4" required>Agree</label>
+								<label class="btn btn-primary"> <input type="radio" name="question5" id="option3" value="5" required>Strongly Agree</label>
 							</div>
 							
 							
@@ -225,7 +226,7 @@
 							<!-- Bar Chart -->
 							<canvas id="myChart2"></canvas>
 							<script>
-								var maxNum = 20;
+								var maxNum = 100;
 								maxNum *= 1;
 								var h_barOptions = {
 									legend : {
@@ -262,7 +263,7 @@
 									data : {
 										labels : name_list,
 										datasets : [ {
-											label : 'status',
+											label : 'status percentage(%)',
 											data : data_list,
 											backgroundColor : [ 
 												    'rgba(0, 99, 132, 0.6)',
@@ -292,7 +293,7 @@
 												ticks : {
 													min : 0,
 													max : maxNum,
-													stepSize : 1
+													stepSize : 5
 												}
 											} ]
 										}
@@ -379,64 +380,62 @@
 		    </div>
 		    
 		<!-- 레이어 팝업 (우울증 창) -->
-	    <div id="depLayer" class="pop-layer">
-	    <a href="#introduction" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
-	        <div class="pop-container">
+	     <div id='depLayer2' class="needpopup" style="padding-left: 7px;padding-right: 7px;">
+			<div class="pop-container">
 	            <div class="pop-conts">
 	                <!--content //-->
 	                <iframe src="depInfo" style="width:100%; height:590px;" scrolling="auto"></iframe> 
 	                <!--// content-->
 	            </div>
 	        </div>
-	    </div>
+		</div>
 	    
 	    <!-- 레이어 팝업 (공황장애 창) -->
-	    <div id="panLayer" class="pop-layer">
-	    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
-	        <div class="pop-container">
+	     <div id='panLayer2' class="needpopup" style="padding-left: 7px;padding-right: 7px;">
+			<div class="pop-container">
 	            <div class="pop-conts">
 	                <!--content //-->
 	                <iframe src="panInfo" style="width:100%; height:590px;" scrolling="auto"></iframe> 
 	                <!--// content-->
 	            </div>
 	        </div>
-	    </div>    
+		</div>    
 	    
 	    <!-- 레이어 팝업 (성격장애 창) -->
-	    <div id="perLayer" class="pop-layer">
-	    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
-	        <div class="pop-container">
+	     <div id='perLayer2' class="needpopup" style="padding-left: 7px;padding-right: 7px;">
+			<div class="pop-container">
 	            <div class="pop-conts">
 	                <!--content //-->
 	                <iframe src="perInfo" style="width:100%; height:590px;" scrolling="auto"></iframe> 
 	                <!--// content-->
 	            </div>
 	        </div>
-	    </div>    
+		</div>
 	    
 	    <!-- 레이어 팝업 (수면장애 창) -->
-	    <div id="insLayer" class="pop-layer">
-	    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
-	        <div class="pop-container">
+	    <div id='insLayer2' class="needpopup" style="padding-left: 7px;padding-right: 7px;">
+			<div class="pop-container">
 	            <div class="pop-conts">
 	                <!--content //-->
-	                <iframe src="insInfo" style="width:100%; height:590px;" scrolling="auto"></iframe> 
+	                <iframe src="insInfo" style="width:100%; height:590px;" scrolling="atuo"></iframe> 
 	                <!--// content-->
 	            </div>
 	        </div>
-	    </div>    
+		</div>
 	    
 	    <!-- 레이어 팝업 (인터넷중독 창) -->
-	    <div id="intLayer" class="pop-layer">
-	    <a href="#" class="btn-layerClose" style="float:right;"><span class="icon fa-times"></span></a>
-	        <div class="pop-container">
+	     <div id='intLayer2' class="needpopup" style="padding-left: 7px;padding-right: 7px;">
+			<div class="pop-container">
 	            <div class="pop-conts">
 	                <!--content //-->
 	                <iframe src="intInfo" style="width:100%; height:590px;" scrolling="auto"></iframe> 
 	                <!--// content-->
 	            </div>
 	        </div>
-	    </div>        
+		</div>
+	    
+	
+
 	
 
 
@@ -452,6 +451,8 @@
 			<script src="<%=cp%>/resources/assets/js/layerPopUp.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="<%=cp%>/resources/assets/js/main.js"></script>
+			<script src="<%=cp%>/resources/assets/js/needpopup.js"></script>
+			<script src="<%=cp%>/resources/assets/js/youtubeWrapper.js"></script>
 			<script>
 		    	 function go2Post(value){
 		    	 var form = document.createElement("form");
@@ -468,6 +469,19 @@
 		         form.submit();
     			 }
     		</script>
+    		<script>  
+				needPopup.config.custom = {
+					'removerPlace': 'outside',
+					'closeOnOutside': false,
+					onShow: function() {
+						console.log('needPopup is shown');
+					},
+					onHide: function() {
+						console.log('needPopup is hidden');
+					}
+				};
+				needPopup.init();
+			</script>
 
 	</body>
 

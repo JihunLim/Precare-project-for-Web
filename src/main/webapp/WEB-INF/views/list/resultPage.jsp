@@ -99,7 +99,7 @@
 								</thead>
 								<c:forEach items="${prediction_list}" var="dto">
 								<tbody>
-									<tr style="text-align:center;cursor:pointer;" onclick="javascript:go2PostWithResult('${dto.pre_id}');" class="highlight">
+									<tr style="text-align:center;cursor:pointer;" onclick="javascript:go2PostWithResult('${dto.pre_id}', '${dto.pre_userId}');" class="highlight">
 										<td style="border-right: 1px solid #ccc;border-left: 0px solid #ccc;">${dto.pre_date}</td>
 										<td>${dto.pre_sort}</td>
 										<td>${dto.pre_result}</td>
@@ -254,31 +254,25 @@
 							</c:if>
 						
 						<div class="row">
-						
-						
 							<article class="12u 12u(mobile) special">
-								
-								
-								
-								<header>
-									
-								</header>
-								
-								
-								<p>
+								<form method="post" action="<%=cp%>/updateComment">
+									<p>
 									<h3 style="color: black;">Manager's Comment : </h3>
 									<div class="row">
 										<div class="12u$ 12u$(mobile)">
-										<textarea name="comment" placeholder="" style="width:100%;height:200px;border:1;overflow:visible;text-overflow:ellipsis;"
+										<input type="hidden" name="pre_id" value="${target_prediction.pre_id}">
+										<input type="hidden" name="target_userId" value="${target_prediction.pre_userId}">
+										<textarea name="pre_comment" placeholder="" style="width:100%;height:200px;border:1;overflow:visible;text-overflow:ellipsis;"
 											 <c:if test="${login_id eq user_id}"> readonly </c:if>>${target_prediction.pre_comment}</textarea>										
 										</div>
 									</div>
 									
 									<c:if test="${login_id ne user_id}">  
 										<footer>
-											<a href="#" class="button circled scrolly" onclick="javascript:go2PostWithComment();">Submit</a>
+											<input type="submit" value="Submit" style="background: #0FAAB2; float:right;"/>
 										</footer>
 									</c:if>
+								</form>
 							</article>
 							
 						</div>
@@ -323,6 +317,7 @@
 			<script src="<%=cp%>/resources/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="<%=cp%>/resources/assets/js/main.js"></script>
+			<script src="<%=cp%>/resources/assets/js/youtubeWrapper.js"></script>
 			<script>
 		    	 function go2Post(value){
 		    	 var form = document.createElement("form");
@@ -363,7 +358,7 @@
     			 }
     		</script>
     		<script>
-		    	 function go2PostWithResult(value){
+		    	 function go2PostWithResult(value, value2){
 		    	 var form = document.createElement("form");
 		
 		         form.action = "showResult";
@@ -373,16 +368,17 @@
 		         hiddenField.setAttribute("type", "hidden");
 		         hiddenField.setAttribute("name", "target_preId");
 		         hiddenField.setAttribute("value", value);
+		         var hiddenField2 = document.createElement("input");
+		         hiddenField2.setAttribute("type", "hidden");
+		         hiddenField2.setAttribute("name", "user_id");
+		         hiddenField2.setAttribute("value", value2);
 		         form.appendChild(hiddenField);
+		         form.appendChild(hiddenField2);
 		         document.body.appendChild(form);
 		         form.submit();
     			 }
     		</script>
-    		<script type="text/javascript">
-  $(window).resize(function(){resizeYoutube();});
-  $(function(){resizeYoutube();});
-  function resizeYoutube(){ $("iframe").each(function(){ if( /^https?:\/\/www.youtube.com\/embed\//g.test($(this).attr("src")) ){ $(this).css("width","100%"); $(this).css("height",Math.ceil( parseInt($(this).css("width")) * 480 / 854 ) + "px");} }); }
-</script>
+    		
 
 
 

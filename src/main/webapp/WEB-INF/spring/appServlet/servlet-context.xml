@@ -3,7 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -27,20 +29,7 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
 	
-	<!-- Setting Database with Azure SQL DataBase with connection pool -> MY SQL --> 
-	<beans:bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-    	<beans:property name="driverClass" value="com.mysql.jdbc.Driver"/>
-    	<beans:property name="jdbcUrl" value="jdbc:mysql://precare.mysql.database.azure.com:3306/precare?autoReconnect=true"/>
-    	<beans:property name="user" value="limjihun204@precare"/>
-    	<beans:property name="password" value="gns315824!"/>
-    	<beans:property name="acquireIncrement" value="3" />
-   	 	<beans:property name="acquireRetryAttempts" value="30" />
-    	<beans:property name="acquireRetryDelay" value="1000" />
-    	<beans:property name="idleConnectionTestPeriod" value="60" />
-    	<beans:property name="preferredTestQuery" value="SELECT 1" />
-    	<beans:property name="testConnectionOnCheckin" value="true" />
-    	<beans:property name="testConnectionOnCheckout" value="false" />
-    </beans:bean>
+	
     
     <!-- Setting seperate java.class file to let this know as servlet -->
 	<beans:bean id="homeController" class="com.wherever.precareweb.HomeController"></beans:bean>
@@ -68,7 +57,7 @@
       <beans:property name="port" value="587" />
       <beans:property name="defaultEncoding" value="utf-8" />
       <beans:property name="username" value="jihunlim204@gmail.com" />
-      <beans:property name="password" value="yourpassword" />
+      <beans:property name="password" value="pwd" />
       <beans:property name="javaMailProperties">
          <beans:props>
                <beans:prop key="mail.transport.protocol">smtp</beans:prop>
@@ -78,5 +67,6 @@
          </beans:props>
       </beans:property>
    </beans:bean>
+
 	
 </beans:beans>

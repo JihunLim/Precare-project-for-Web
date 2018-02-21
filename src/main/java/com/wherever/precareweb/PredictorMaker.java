@@ -568,58 +568,29 @@ public class PredictorMaker {
 		try {
 			if(mode == 1) {
 				//우울증인 경우
-				int i = 1;
 				String[] temp = predictStr.split("\"");
-				System.out.println("우울증");
-				for(String word : temp) {
-					System.out.println(i + ">>  " + word);
-					i++;
-				}
 				f_result = temp[133].toString();
 				str_posibility = temp[135].toString();
 			}else if(mode == 2) {
 				//공황장애
-				int i = 1;
 				String[] temp = predictStr.split("\"");
 				System.out.println("공황장애");
-				for(String word : temp) {
-					System.out.println(i + ">>  " + word);
-					i++;
-				}
 				f_result = temp[121].toString();
 				str_posibility = temp[123].toString();
 			}else if(mode == 3) {
 				//성격장애
-				int i = 1;
 				String[] temp = predictStr.split("\"");
-				System.out.println("성격장애");
-				for(String word : temp) {
-					System.out.println(i + ">>  " + word);
-					i++;
-				}
 				f_result = temp[151].toString();
 				str_posibility = temp[153].toString();
 			}else if(mode == 4) {
 				//수면장애
-				int i = 1;
 				String[] temp = predictStr.split("\"");
-				System.out.println("수면장애");
-				for(String word : temp) {
-					System.out.println(i + ">>  " + word);
-					i++;
-				}
 				f_result = temp[121].toString();
 				str_posibility = temp[123].toString();
 				
 			}else if(mode == 5) {
 				//인터넷중독
-				int i = 1;
 				String[] temp = predictStr.split("\"");
-				System.out.println("인터넷중독");
-				for(String word : temp) {
-					System.out.println(i + ">>  " + word);
-					i++;
-				}
 				f_result = temp[163].toString();
 				str_posibility = temp[165].toString();
 			}

@@ -165,7 +165,7 @@ input {
 <body>
 <form class="signUp" id="signupForm" method="post" action="<%=cp%>/checkSignUp" onsubmit="return checkSignUpFormRule()">
    <h1 class="signUpTitle">Sign up for precare</h1>
-   <input type="text" class="signUpInput" id="user_id" name="user_id" placeholder="Type your user Email" autofocus required>
+   <input type="email" class="signUpInput" id="user_id" name="user_id" placeholder="Type your user Email" autofocus required>
    
 <!-- 
    	<a href="#" class="button btn-default" onclick="javascript:checkId(document.getElementsByName('user_id')[0].value);">Check id duplication</a>

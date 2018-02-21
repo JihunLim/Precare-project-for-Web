@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<!-- Setting Database with Azure SQL DataBase with connection pool -> MY SQL --> 
+	<bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+    	<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+    	<property name="jdbcUrl" value="jdbc:mysql://precare.mysql.database.azure.com:3306/precare?autoReconnect=true"/>
+    	<property name="user" value="id"/>
+    	<property name="password" value="pwd"/>
+    	<property name="acquireIncrement" value="3" />
+   	 	<property name="acquireRetryAttempts" value="30" />
+    	<property name="acquireRetryDelay" value="1000" />
+    	<property name="idleConnectionTestPeriod" value="60" />
+    	<property name="preferredTestQuery" value="SELECT 1" />
+    	<property name="testConnectionOnCheckin" value="true" />
+    	<property name="testConnectionOnCheckout" value="false" />
+    </bean>
+    
+    
 </beans>

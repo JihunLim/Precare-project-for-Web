@@ -1,7 +1,7 @@
 package com.wherever.precareweb.emailService;
 
 import org.springframework.scheduling.annotation.Async;
-@Async("threadPoolTaskExecutor")
+
 public class Email {
 	 
     private String subject;

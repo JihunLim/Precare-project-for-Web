@@ -11,6 +11,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -18,7 +19,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -36,6 +36,7 @@ import com.wherever.precareweb.emailService.Email;
 import com.wherever.precareweb.emailService.EmailSender;
 
 
+
 /**
  * Handles requests for the application home page.
  */
@@ -48,11 +49,13 @@ public class HomeController {
 	
 	@Autowired
 	BCryptPasswordEncoder pwdEncoder;
+	
+	@Autowired
+	public EmailSender emailSender;
+	
+	@Autowired
+	public Email email;
 
-	@Autowired
-	private EmailSender emailSender;
-	@Autowired
-	private Email email;
 	
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -77,7 +80,7 @@ public class HomeController {
 		PrecareDao dao = sqlSession.getMapper(PrecareDao.class);
 		
 		String user_id= SecurityContextHolder.getContext().getAuthentication().getName().toString(); 
-		System.out.println("dd : " + user_id);
+		
 		if("anonymousUser".equals(user_id) || "".equals(user_id)|| user_id == null) {
 			//로그인이 안되있는 경우
 			model.addAttribute("user_name", "Guest");
@@ -123,7 +126,7 @@ public class HomeController {
 		}else {
 			//로그인이 되어있는 경우
 			//그래프를 위해서 각 종목 별 진행 상황 전달
-			
+			//각 진행상황 초기화
 			model.addAttribute("status_dep", ((progressInfo.getPro_depressionState())!=null)?(Integer.parseInt(progressInfo.getPro_depressionState().substring(3, 6)) ):0);
 			model.addAttribute("status_pan", ((progressInfo.getPro_panicdisorderState())!=null)?(Integer.parseInt(progressInfo.getPro_panicdisorderState().substring(3, 6)) ):0);
 			model.addAttribute("status_per", ((progressInfo.getPro_personalitydisorderState())!=null)?(Integer.parseInt(progressInfo.getPro_personalitydisorderState().substring(3, 6)) ):0);
@@ -135,7 +138,8 @@ public class HomeController {
 			queMode = userInfo.getUser_questionMode();
 			//우울증
 			int temp = ((progressInfo.getPro_depressionState())!=null)?(Integer.parseInt(progressInfo.getPro_depressionState().substring(3, 6)) ):0;
-			model.addAttribute("status_dep", String.valueOf(temp));
+			
+			model.addAttribute("status_dep", String.valueOf(((float)temp/(float)Integer.parseInt(queEndNum.get("qen_depressionENum").toString()))*100));
 			String strTemp = "";
 			if(temp % Integer.parseInt(queEndNum.get("qen_depressionENum").toString()) == 0) {
 				//문제를 다 푼 경우
@@ -148,6 +152,7 @@ public class HomeController {
 			
 			//공황장애
 			temp = ((progressInfo.getPro_panicdisorderState())!=null)?(Integer.parseInt(progressInfo.getPro_panicdisorderState().substring(3, 6)) ):0;
+			model.addAttribute("status_pan", String.valueOf(((float)temp/(float)Integer.parseInt(queEndNum.get("qen_panicENum").toString()))*100));
 			strTemp = "";
 			if(temp % Integer.parseInt(queEndNum.get("qen_panicENum").toString()) == 0) {
 				//문제를 다 푼 경우
@@ -160,6 +165,7 @@ public class HomeController {
 			
 			//성격장애
 			temp = ((progressInfo.getPro_personalitydisorderState())!=null)?(Integer.parseInt(progressInfo.getPro_personalitydisorderState().substring(3, 6)) ):0;
+			model.addAttribute("status_per", String.valueOf(((float)temp/(float)Integer.parseInt(queEndNum.get("qen_personalityENum").toString()))*100));
 			strTemp = "";
 			if(temp % Integer.parseInt(queEndNum.get("qen_personalityENum").toString()) == 0) {
 				//문제를 다 푼 경우
@@ -172,6 +178,7 @@ public class HomeController {
 			
 			//수면장애
 			temp = ((progressInfo.getPro_dyslepsiaState())!=null)?(Integer.parseInt(progressInfo.getPro_dyslepsiaState().substring(3, 6)) ):0;
+			model.addAttribute("status_ins", String.valueOf(((float)temp/(float)Integer.parseInt(queEndNum.get("qen_dyslepsiaENum").toString()))*100));
 			strTemp = "";
 			if(temp % Integer.parseInt(queEndNum.get("qen_dyslepsiaENum").toString()) == 0) {
 				//문제를 다 푼 경우
@@ -184,6 +191,7 @@ public class HomeController {
 			
 			//인터넷중독
 			temp = ((progressInfo.getPro_internetaddictionState())!=null)?(Integer.parseInt(progressInfo.getPro_internetaddictionState().substring(3, 6)) ):0;
+			model.addAttribute("status_int", String.valueOf(((float)temp/(float)Integer.parseInt(queEndNum.get("qen_internetENum").toString()))*100));
 			strTemp = "";
 			if(temp % Integer.parseInt(queEndNum.get("qen_internetENum").toString()) == 0) {
 				//문제를 다 푼 경우
@@ -317,7 +325,7 @@ public class HomeController {
 		} 
 		model.addAttribute("prediction_count", numPrediction);
 		model.addAttribute("prediction_list", predictionList);
-		System.out.println("target_preid : " + target_preId);
+		
 		if(target_preId != null) { 
 			preWithIdContent = dao.selectPredictionWithIdDao(target_preId);
 		}
@@ -334,16 +342,25 @@ public class HomeController {
 	
 	
 	@RequestMapping("/updateComment") 
-	public String updateComment(Locale locale, Model model, HttpServletRequest request) throws Exception {
-		String resultPage = "cmmn/saveDataSuccess";
+	public String updateComment(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String resultPage = "cmmn/saveCommentSuccess";
 		try {
 		PrecareDao dao = sqlSession.getMapper(PrecareDao.class);
-		String comment = request.getParameter("comment");
+		request.setCharacterEncoding("UTF-8");
+		String target_userId = request.getParameter("target_userId");
+		String user_id = SecurityContextHolder.getContext().getAuthentication().getName().toString();
+		String user_name = dao.selectUserNameWithIdDao(user_id);
+		String pre_comment = request.getParameter("pre_comment");
 		String pre_id = request.getParameter("pre_id");
+		//입력받은 comment에 글 쓴 사용자와 시간을 덧 붙임
+		//pre_comment = user_id+"("+user_name+") : "+ pre_comment; 
+		
 		Map<String, String> pre_map = new HashMap<String, String>();
 		pre_map.put("pre_id", pre_id);
-		pre_map.put("comment", comment);
+		pre_map.put("pre_comment", pre_comment);
 		dao.updateCommentWithIdDao(pre_map);
+		model.addAttribute("target_userId", target_userId);
+		
 		}catch(Exception ex) {
 			resultPage = "cmmn/saveDataFailure";
 			System.out.println(ex.getStackTrace());
@@ -813,13 +830,30 @@ public class HomeController {
 		
 	}
 	
-	@Async("threadPoolTaskExecutor")
+	/*
+	//@Async("threadPoolTaskExecutor")
     public void sendEmailToManager(UserDto userInfo, String[] argManagers, String strSort, PredictorMaker pm) throws Exception {
-        // do something
-		System.out.println("쓰레드가 돌아가고 있습니다. 여러분 !!!");
-		
+        SimpleMailMessage email = new SimpleMailMessage();
 		for(String e_mail : argManagers) {
 			System.out.println("메일 보내고 있는 중!" + e_mail);
+			email.setTo(e_mail);
+			email.setFrom("Precare");
+			email.setSubject("[Precare] 결과알림 서비스 : "+userInfo.getUser_id()+" ("+userInfo.getUser_name()+")님의 "+strSort+" 결과를 알려드립니다.");
+			email.setText("[Precare] 결과알림 서비스\n\n***피보호자 인적사항***\nE-mail : "+userInfo.getUser_id()+"\n성함 : "+userInfo.getUser_name()+
+					"\n나이 : "+userInfo.getUser_age()+"\n직업 : "+userInfo.getUser_occupation()+"\n"+strSort+"검사결과 : "+pm.getStrKrResult()+"\n\n자세한 정보는 Precare 사이트에서 확인 가능합니다.");
+			try {
+			mailSender.send(email);
+			}catch(MailException me) {
+				System.out.println("메일 발송 오류");
+				me.printStackTrace();
+			}
+		}
+    }
+    */
+    
+    public void sendEmailToManager(UserDto userInfo, String[] argManagers, String strSort, PredictorMaker pm) throws Exception {
+        // do something
+		for(String e_mail : argManagers) {
 			email.setReceiver(e_mail);
 			email.setSubject("[Precare] 결과알림 서비스 : "+userInfo.getUser_id()+" ("+userInfo.getUser_name()+")님의 "+strSort+" 결과를 알려드립니다.");
 			email.setContent("[Precare] 결과알림 서비스\n\n***피보호자 인적사항***\nE-mail : "+userInfo.getUser_id()+"\n성함 : "+userInfo.getUser_name()+

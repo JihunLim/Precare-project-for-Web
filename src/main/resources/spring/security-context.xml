@@ -8,18 +8,9 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
 	<!-- Before setting this, Read this URL : https://slowgrowth121.blogspot.kr/2015/07/maven-spring-security-simple-in-memory.html -->
-
-	<!-- Setting Database with Azure SQL DataBase -->
-	 <bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-    	<property name="driverClass" value="com.mysql.jdbc.Driver"/>
-    	<property name="jdbcUrl" value="jdbc:mysql://precare.mysql.database.azure.com:3306/precare"/>
-    	<property name="user" value="limjihun204@precare"/>
-    	<property name="password" value="gns315824!"/>
-    </bean>
     
     <!-- User password encrypt -->
     <bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-
     
     <security:http pattern="/css/**" security="none"/>
     <security:http pattern="/bootstrap/**" security="none"/>
@@ -27,7 +18,6 @@
     <security:http pattern="/images/**" security="none"/>
 
 	<!-- http://niees.tistory.com/18 : 사용자정보 확장 이용 -->
-
 	<security:authentication-manager>
 		<security:authentication-provider>
 			<security:jdbc-user-service 

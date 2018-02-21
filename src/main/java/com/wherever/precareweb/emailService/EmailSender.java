@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
-@Async("threadPoolTaskExecutor")
+
     public class EmailSender  {
         @Autowired
-        protected JavaMailSender  mailSender;
+        public JavaMailSender  mailSender;
+        
+        @Async("threadPoolTaskExecutor")
         public void SendEmail(Email email) throws Exception {
              
             MimeMessage msg = mailSender.createMimeMessage();

@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 	<title>http://www.blueb.co.kr</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="<%=cp%>/resources/assets/css/infostyle.css" />
 </head>
 <body>
@@ -13,15 +15,15 @@
 
 <div class="wrap">
        <h1>Panic disorder</h1>   
-       <p align="middle">
+        <div class="youtubeWrap">
         <iframe src="https://www.youtube.com/embed/1aDglTzfNpM" width="500" height="315" frameborder="0"></iframe>
-        </p> 
+        </div> 
         <p>
          A panic attack can happen anywhere, at any time. You may feel terrified and overwhelmed, even though you’re not in any danger. If this kind of random event has happened to you at least twice, and you constantly worry and change your routine to keep from having one, you might have panic disorder -- a type of anxiety disorder.<br /><br />
          <span class="icon fa-paper-plane"></span>Helpful URL to read : <a href="https://goo.gl/c6XzrC" target="_blank">Web MD</a>
        </p> 
        <br />
 </div>
-
+<script src="<%=cp%>/resources/assets/js/youtubeWrapper.js"></script>
 </body>
 </html>

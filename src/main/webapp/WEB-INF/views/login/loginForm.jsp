@@ -18,7 +18,7 @@
 
 
 	<div class="login">
-		<h1>Precare</h1>
+		<a href="<%=cp%>/home"><h1>Precare</h1></a>
 		<c:if test="${param.fail == null}">
 			<h5 style="text-align: center; color: #1E90FF;">Sign in, please</h5>
 		</c:if>

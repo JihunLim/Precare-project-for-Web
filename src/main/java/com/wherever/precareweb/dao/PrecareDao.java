@@ -12,7 +12,7 @@ import com.wherever.precareweb.dto.ResultDto;
 import com.wherever.precareweb.dto.UserDto;
 
 public interface PrecareDao {
-	//부서 장 이메일 출력하기
+	//사용자 이름 출력하기
 	public String selectUserNameWithIdDao(String data);
 	//예측 결과 출력하기
 	public List<Prediction> selectAllPredictionWithIdDao(String data);
